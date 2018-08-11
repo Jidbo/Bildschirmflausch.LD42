@@ -14,6 +14,9 @@ public class StoragePallet : Storage {
         if (IsFull()) {
             GameObject newShelf = UnityEngine.Object.Instantiate(shelf);
             newShelf.transform.position = transform.position;
+            foreach (GameObject c in content) {
+                Destroy(c);
+            }
             Destroy(gameObject);
         }
     }

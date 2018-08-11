@@ -29,8 +29,13 @@ public abstract class Storage : MonoBehaviour {
     /// <returns>Returns true, if the object is storable</returns>
     public bool AddToStorage(GameObject newGO) {
         // TODO correct scaling and position
-        if (!IsFull()) {
+        if (!IsFull() && CanStore(newGO)) {
             content.Add(newGO);
+            OnObjectAdded(newGO);
+            newGO.transform.parent = gameObject.transform;
+            Rigidbody rb = newGO.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.detectCollisions = false;
             return true;
 		} else {
             return false;    
@@ -60,6 +65,10 @@ public abstract class Storage : MonoBehaviour {
         if (!IsEmpty()) {
             GameObject lastItem = content[content.Count - 1];
             content.Remove(lastItem);
+            lastItem.transform.parent = null;
+            Rigidbody rb = lastItem.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.detectCollisions = true;
             return lastItem;
         }
         return null;
@@ -69,7 +78,7 @@ public abstract class Storage : MonoBehaviour {
     /// Returns true when no objects are stored
     /// </summary>
     public bool IsEmpty() {
-        if (content.Count == 0) {
+        if (content.Count <= 0) {
             return true;
         }
         return false;
@@ -79,7 +88,7 @@ public abstract class Storage : MonoBehaviour {
     /// Returns true when the capacity limit is reached
     /// </summary>
     public bool IsFull() {
-        if (content.Count >= maxCapacity - 1) {
+        if (content.Count >= maxCapacity) {
             return true;
         }
         return false;

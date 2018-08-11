@@ -15,12 +15,10 @@ public class PlayerMovement : MonoBehaviour {
     float forwardSpeed;
     float zSpeed;
     float rotationAngle;
-    Transform t;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        t = GetComponent<Transform>();
 	}
 
 	// Update is called once per frame
@@ -31,11 +29,4 @@ public class PlayerMovement : MonoBehaviour {
         transform.Rotate(0, zSpeed, 0);
         transform.Translate(forwardSpeed, 0, 0);
     }
-
-  //  private void FixedUpdate() {
-		//rb.velocity = rb.velocity * (1 - acceleration) + acceleration * new Vector3(xSpeed, rb.velocity.y, zSpeed);
-
-   //     if(rb.velocity.magnitude >= 0.1)
-			//t.LookAt(t.position + new Vector3((float)System.Math.Sin(rotationAngle), 0, (float)System.Math.Cos(rotationAngle)));
-    //}
 }

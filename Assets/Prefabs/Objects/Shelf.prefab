@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114591106757620240}
   m_Layer: 0
   m_Name: Shelf
-  m_TagString: Untagged
+  m_TagString: shelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,4 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 2
-  bigShelf: {fileID: 0}
+  content:
+  - {fileID: 0}
+  - {fileID: 0}
+  bigShelf: {fileID: 1144656223927980, guid: 5fcd500e597e2024f84c06e5b4d31950, type: 2}

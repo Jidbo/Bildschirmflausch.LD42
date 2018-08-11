@@ -19,6 +19,9 @@ public class StorageShelf : Storage {
             }
             GameObject newBigShelf = UnityEngine.Object.Instantiate(bigShelf);
             newBigShelf.transform.position = transform.position;
+            foreach(GameObject c in content) {
+                Destroy(c);
+            }
             Destroy(gameObject);
         }
     }

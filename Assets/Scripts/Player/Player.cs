@@ -2,17 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
-    StoragePlayer storage;
-    BoxCollider collider;
+public class Player : MonoBehaviour {
+    StoragePlayer playerStorage;
+    [SerializeField]
+    GameObject spaceCheck;
+
+    bool submitted;
 
 	void Start () {
-        storage = GetComponent(typeof(StoragePlayer)) as StoragePlayer;
-        collider = GetComponent<BoxCollider>();
+        playerStorage = GetComponent(typeof(StoragePlayer)) as StoragePlayer;
+        submitted = false;
 	}
 
-    // Update is called once per frame
-    void Update() {
-
+    private void Update() {
+        if (!submitted && Input.GetAxis("Submit") > 0) {
+            submitted = true;
+            //gets all objects in front of the player
+            Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(0.49f, 0.49f, 0.49f));
+            if (colliders.Length == 0 && playerStorage.IsFull()) {
+                playerStorage.GetFromStorage();
+                return;
+            }
+            //runs through all colliders
+            foreach (Collider c in colliders) {
+                //tries to get the collider's Storage component and saves it in colliderStorage
+                Storage colliderStorage = c.gameObject.GetComponent(typeof(Storage)) as Storage;
+                //checks if the collider has a Storage attached
+                if (colliderStorage != null) {
+                    //checks if the player is holding an item
+                    if (playerStorage.IsFull()) {
+                        //takes the item from the player 
+                        GameObject obj = playerStorage.GetFromStorage();
+                        //tries to insert the item into the object's storage
+                        if (colliderStorage.AddToStorage(obj)) {
+                            return;
+                        } else {
+                            //returns the item to the player, if storing failed
+                            playerStorage.AddToStorage(obj);
+                        }
+                    } else {
+                        if (!colliderStorage.IsEmpty()) {
+                            //takes an item from the object's storage and transfers it to the player's storage
+                            playerStorage.AddToStorage(colliderStorage.GetFromStorage());
+                            return;
+                        } else {
+                            //tries to transfer the gameobject to the player's storage
+                            if (playerStorage.AddToStorage(c.gameObject)) {
+                                return;
+                            }
+                        }
+                    }
+                }
+                //if the collider has no storage attached (e.g. crate)
+                else {
+                    //tries to add the collider's gameobject to the player
+                    if (playerStorage.AddToStorage(c.gameObject)) {
+                        return;
+                    }
+                }
+            }
+        } else {
+            submitted = false;
+        }
     }
 }
