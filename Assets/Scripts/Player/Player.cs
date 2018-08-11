@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     bool submitted;
 
 	void Start () {
-        playerStorage = GetComponent(typeof(StoragePlayer)) as StoragePlayer;
+        playerStorage = GetComponent<StoragePlayer>();
         submitted = false;
 	}
 
@@ -19,14 +19,16 @@ public class Player : MonoBehaviour {
             submitted = true;
             //gets all objects in front of the player
             Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(0.49f, 0.49f, 0.49f));
-            if (colliders.Length == 0 && playerStorage.IsFull()) {
-                playerStorage.GetFromStorage();
+
+            // tries to drop the item
+            if (colliders.Length == 0 && playerStorage.GetFromStorage()) {
                 return;
             }
             //runs through all colliders
             foreach (Collider c in colliders) {
                 //tries to get the collider's Storage component and saves it in colliderStorage
-                Storage colliderStorage = c.gameObject.GetComponent(typeof(Storage)) as Storage;
+                Storage colliderStorage = c.gameObject.GetComponent<Storage>();
+
                 //checks if the collider has a Storage attached
                 if (colliderStorage != null) {
                     //checks if the player is holding an item
@@ -52,9 +54,8 @@ public class Player : MonoBehaviour {
                             }
                         }
                     }
-                }
-                //if the collider has no storage attached (e.g. crate)
-                else {
+                } else {
+					//if the collider has no storage attached (e.g. crate)
                     //tries to add the collider's gameobject to the player
                     if (playerStorage.AddToStorage(c.gameObject)) {
                         return;

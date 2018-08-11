@@ -28,6 +28,7 @@ public abstract class Storage : MonoBehaviour {
     /// <param name="newGO">The gameobject which should be stored.</param>
     /// <returns>Returns true, if the object is storable</returns>
     public bool AddToStorage(GameObject newGO) {
+        Debug.Log("Collect Item");
         // TODO correct scaling and position
         if (!IsFull() && CanStore(newGO)) {
             content.Add(newGO);
@@ -62,6 +63,7 @@ public abstract class Storage : MonoBehaviour {
     /// </summary>
     /// <returns>The first gameobject found.</returns>
     public GameObject GetFromStorage() {
+        Debug.Log("Drop Item");
         if (!IsEmpty()) {
             GameObject lastItem = content[content.Count - 1];
             content.Remove(lastItem);
