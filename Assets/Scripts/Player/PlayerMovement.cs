@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     float speed = 100;
     [SerializeField]
-    float accelleration = 0.9f;
+    float acceleration = 0.9f;
 
     Rigidbody rb;
     float xSpeed;
@@ -19,17 +20,18 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         t = GetComponent<Transform>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-        xSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        zSpeed = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        
+        xSpeed = Input.GetAxis("Horizontal") * speed;
+        zSpeed = Input.GetAxis("Vertical") * speed;
+		rotationAngle+=0.1f;
     }
 
     private void FixedUpdate() {
-        rb.velocity = new Vector3(xSpeed + (xSpeed - rb.velocity.x) * accelleration, 0, zSpeed + (zSpeed - rb.velocity.z) * accelleration);
+		rb.velocity = rb.velocity * (1 - acceleration) + acceleration * new Vector3(xSpeed, rb.velocity.y, zSpeed);
+
         if(rb.velocity.magnitude >= 0.1)
-            t.LookAt(t.position + rb.velocity);
+			t.LookAt(t.position + new Vector3((float)System.Math.Sin(rotationAngle), 0, (float)System.Math.Cos(rotationAngle)));
     }
 }
