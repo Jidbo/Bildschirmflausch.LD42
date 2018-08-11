@@ -10,7 +10,6 @@ public class Player : MonoBehaviour {
     LayerMask obstacleLayerMask;
 
     void Start() {
-        playerStorage = GetComponent(typeof(StoragePlayer)) as StoragePlayer;
         playerStorage = GetComponent<StoragePlayer>();
     }
 

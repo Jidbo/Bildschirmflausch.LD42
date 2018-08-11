@@ -8,6 +8,7 @@ TagManager:
   - shelf
   - bigshelf
   - pallet
+  - waste
   layers:
   - Default
   - TransparentFX
