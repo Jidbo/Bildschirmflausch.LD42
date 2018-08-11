@@ -4,21 +4,19 @@ using UnityEngine;
 using System;
 
 public class PlayerMovement : MonoBehaviour {
-    //[SerializeField]
     float rotationSpeed = 150;
-	//[SerializeField]
-    float movementSpeed = 10F;
+    float movementSpeed = 10;
     
-    float forwardSpeed;
-    float zSpeed;
+    float mSpeed;
+    float rSpeed;
     float rotationAngle;
 
 	// Update is called once per frame
 	void Update () {
-        zSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
-        forwardSpeed = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
+        mSpeed = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
+        rSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
 
-        transform.Rotate(0, zSpeed, 0);
-        transform.Translate(forwardSpeed, 0, 0);
+        transform.Rotate(0, rSpeed, 0);
+        transform.Translate(0, 0, mSpeed);
     }
 }
