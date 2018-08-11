@@ -142,7 +142,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 2.5
   timeTillSpawning: 0
-  toSpawn: []
+  toSpawn:
+  - {fileID: 1943071178220950, guid: ced161cc43da945a3906571829052e53, type: 2}
+  - {fileID: 1988164223302370, guid: 9319fe73559cc424fab91153c97c75e6, type: 2}
+  - {fileID: 1030100150646362, guid: f41e70219dd374cfa91c0498efc30dfb, type: 2}
 --- !u!4 &5210510
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +477,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: edb73fd2922f24e0b889453787b6940b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
