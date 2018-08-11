@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     float speed = 100;
+    [SerializeField]
+    float accelleration = 0.9f;
 
     Rigidbody rb;
     float xSpeed;
@@ -26,7 +28,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        rb.velocity = new Vector3(xSpeed, 0, zSpeed);
-        t.LookAt(t.position + rb.velocity);
+        rb.velocity = new Vector3(xSpeed + (xSpeed - rb.velocity.x) * accelleration, 0, zSpeed + (zSpeed - rb.velocity.z) * accelleration);
+        if(rb.velocity.magnitude >= 0.1)
+            t.LookAt(t.position + rb.velocity);
     }
 }
