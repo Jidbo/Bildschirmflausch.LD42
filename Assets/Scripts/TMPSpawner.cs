@@ -30,7 +30,8 @@ public class TMPSpawner : MonoBehaviour {
 
     private void SpawnObject() {
         if (toSpawn.Count > 0) {
-            GameObject newObstacle = Instantiate(toSpawn[rnd.Next(toSpawn.Count)], transform);
+            GameObject newObstacle = Instantiate(toSpawn[rnd.Next(toSpawn.Count)]);
+            newObstacle.transform.position = transform.position;
         }
     }
 }
