@@ -19,6 +19,8 @@ ModelImporter:
     100026: LeftLamp
     100028: RightLamp
     100030: Wheel
+    100032: Truck
+    100034: Wheels
     400000: Armature
     400002: Base
     400004: Compartment
@@ -35,8 +37,11 @@ ModelImporter:
     400026: LeftLamp
     400028: RightLamp
     400030: Wheel
+    400032: Truck
+    400034: Wheels
     2100000: Material_001
     2100002: Material
+    2100004: Material__ForkLiftTruck
     4300000: LampRight
     4300002: Wheel
     4300004: EngineCompartment
@@ -44,6 +49,8 @@ ModelImporter:
     4300008: ExhaustTop
     4300010: Fork
     4300012: LampLeft
+    4300014: Wheels
+    4300016: Truck
     7400000: Default Take
     7400002: Idle
     7400004: LiftDown
@@ -56,6 +63,9 @@ ModelImporter:
     13700008: LampLeft
     13700010: LampRight
     13700012: Wheel
+    13700014: Truck
+    13700016: Wheels
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
