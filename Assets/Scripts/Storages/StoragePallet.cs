@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoragePallet : Storage
-{
-    protected override bool CanStore(GameObject go)
-    {
-        throw new System.NotImplementedException();
+public class StoragePallet : Storage {
+    protected override bool CanStore(GameObject go) {
+        return go.CompareTag("crate");
     }
 
-    protected override void OnObjectAdded(GameObject go)
-    {
-        throw new System.NotImplementedException();
+    protected override void OnObjectAdded(GameObject go) {
+        if (IsFull()) {
+            //TODO create shelf in current position
+        }
     }
 }

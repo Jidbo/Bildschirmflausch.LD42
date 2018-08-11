@@ -53,11 +53,24 @@ public abstract class Storage : MonoBehaviour {
     }
 
     /// <summary>
-    /// Returns true when the capacity limit is reached
+    /// Returns true when no objects are stored
     /// </summary>
     public bool IsEmpty() {
         foreach (GameObject go in content) {
             if (go != null)
+                return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Returns true when the capacity limit is reached
+    /// </summary>
+    public bool IsFull()
+    {
+        foreach (GameObject go in content)
+        {
+            if (go == null)
                 return false;
         }
         return true;
