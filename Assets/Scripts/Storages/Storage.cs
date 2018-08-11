@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Storage : MonoBehaviour
-{
+public abstract class Storage : MonoBehaviour {
     [SerializeField]
     protected int maxCapacity;
-    protected GameObject[] content;
 
+    protected GameObject[] content;
     ArrayList storableTags;
 
-    private void Start()
-    {
+    private void Start() {
         content = new GameObject[maxCapacity];
     }
 
@@ -19,10 +17,9 @@ public abstract class Storage : MonoBehaviour
     /// Constructor for a storage object.
     /// </summary>
     /// <param name="storableTags">A list of tags which can be stored.</param>
-    public Storage(string[] storableTags)
-    {
-        foreach (string i in storableTags)
-            this.storableTags.Add(i);
+    public Storage(string[] storableTags) {
+        foreach (string tag in storableTags)
+            this.storableTags.Add(tag);
     }
 
     /// <summary>
@@ -30,13 +27,10 @@ public abstract class Storage : MonoBehaviour
     /// </summary>
     /// <param name="newGO">The gameobject which should be stored.</param>
     /// <returns>Returns true, if the object is storable</returns>
-    public bool AddToStorage(GameObject newGO)
-    {
+    public bool AddToStorage(GameObject newGO) {
         if (CanStore(newGO)) {
-            for (int i = 0; i < content.Length; i++)
-            {
-                if (content[i] == null)
-                {
+            for (int i = 0; i < content.Length; i++) {
+                if (content[i] == null) {
                     content[i] = newGO;
                     OnObjectAdded(newGO);
                     return true;
@@ -57,8 +51,7 @@ public abstract class Storage : MonoBehaviour
     /// </summary>
     /// <param name="go">The Gameobject wich should be checked.</param>
     /// <returns>True, if the object is storable.</returns>
-    protected bool CanStore(GameObject go)
-    {
+    protected bool CanStore(GameObject go) {
         return storableTags.Contains(go.tag);
     }
 
@@ -91,10 +84,8 @@ public abstract class Storage : MonoBehaviour
     /// <summary>
     /// Returns true when the capacity limit is reached
     /// </summary>
-    public bool IsFull()
-    {
-        foreach (GameObject go in content)
-        {
+    public bool IsFull() {
+        foreach (GameObject go in content) {
             if (go == null)
                 return false;
         }

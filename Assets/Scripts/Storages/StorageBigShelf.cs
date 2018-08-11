@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StorageBigShelf : Storage
-{
-    public StorageBigShelf() : base(new string[] { "shelf", "waste" })
-    {
+public class StorageBigShelf : Storage {
+    public StorageBigShelf() : base(new string[] { "shelf", "waste" }) {
 
     }
 
-    protected override void OnObjectAdded(GameObject go)
-    {
+    protected override void OnObjectAdded(GameObject go) {
         // nothing to craft
     }
 }

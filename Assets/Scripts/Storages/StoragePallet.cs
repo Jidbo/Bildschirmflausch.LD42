@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoragePallet : Storage
-{
+public class StoragePallet : Storage {
+    [SerializeField]
+    GameObject shelf;
 
-    public StoragePallet() : base(new string[] { "crate" })
-    {
+    public StoragePallet() : base(new string[] { "crate" }) {
 
     }
 

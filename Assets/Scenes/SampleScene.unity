@@ -143,8 +143,10 @@ MonoBehaviour:
   cooldown: 2.5
   timeTillSpawning: 0
   toSpawn:
-  - {fileID: 1199801057280548, guid: de1c8b876bc63c84f99e3c650810df9f, type: 2}
-  - {fileID: 1950881742613432, guid: a9b1996fa07c9ae45834bc2a5cee6779, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &5210510
 Transform:
   m_ObjectHideFlags: 0
@@ -314,6 +316,7 @@ GameObject:
   - component: {fileID: 641299073}
   - component: {fileID: 641299072}
   - component: {fileID: 641299077}
+  - component: {fileID: 641299078}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -416,6 +419,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   acceleration: 0.9
+--- !u!114 &641299078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641299071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b370e0eac1ec44084506d877d42361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 1
 --- !u!1 &1744038137
 GameObject:
   m_ObjectHideFlags: 0
