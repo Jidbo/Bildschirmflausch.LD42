@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c75c2a3c49843cfb732a0b9b5ba05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
   acceleration: 0.9
 --- !u!114 &641299078
 MonoBehaviour:
@@ -429,7 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561ddc57cb7b64ee487c2323082b6131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 0
 --- !u!1 &1744038137
 GameObject:
   m_ObjectHideFlags: 0
