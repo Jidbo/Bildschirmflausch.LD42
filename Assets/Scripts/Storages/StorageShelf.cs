@@ -6,13 +6,13 @@ public class StorageShelf : Storage {
     [SerializeField]
     GameObject bigShelf;
 
-    public StorageShelf() : base(new string[] { "crate", "pallet", "waste", "shelf" }) {
+    public StorageShelf() : base(new string[] { "crate", "pallet", "waste", "shelf" }, 2) {
 
     }
 
     protected override void OnObjectAdded(GameObject go) {
         if (go.CompareTag("shelf")) {
-            for (int i = 1; i < content.Length; i++) {
+            for (int i = 1; i < content.Count; i++) {
                 if (content[i] != null) {
                     return;
                 }

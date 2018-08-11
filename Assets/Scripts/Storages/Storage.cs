@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Storage : MonoBehaviour {
-    [SerializeField]
+    
     protected int maxCapacity;
 
-    protected GameObject[] content;
+    protected List<GameObject> content;
     ArrayList storableTags = new ArrayList();
 
     private void Start() {
-        content = new GameObject[maxCapacity];
+        content = new List<GameObject>();
     }
 
     /// <summary>
     /// Constructor for a storage object.
     /// </summary>
     /// <param name="storableTags">A list of tags which can be stored.</param>
-    public Storage(string[] storableTags) {
-        foreach (string tag in storableTags)
-            this.storableTags.Add(tag);
+    public Storage(string[] storableTags, int maxCapacity) {
+        this.storableTags.AddRange(storableTags);
+        this.maxCapacity = maxCapacity;
     }
 
     /// <summary>
@@ -28,16 +28,13 @@ public abstract class Storage : MonoBehaviour {
     /// <param name="newGO">The gameobject which should be stored.</param>
     /// <returns>Returns true, if the object is storable</returns>
     public bool AddToStorage(GameObject newGO) {
-        if (CanStore(newGO)) {
-            for (int i = 0; i < content.Length; i++) {
-                if (content[i] == null) {
-                    content[i] = newGO;
-                    OnObjectAdded(newGO);
-                    return true;
-                }
-            }
+        // TODO correct scaling and position
+        if (!IsFull()) {
+            content.Add(newGO);
+            return true;
+		} else {
+            return false;    
         }
-        return false;
     }
 
     /// <summary>
@@ -60,12 +57,10 @@ public abstract class Storage : MonoBehaviour {
     /// </summary>
     /// <returns>The first gameobject found.</returns>
     public GameObject GetFromStorage() {
-        for (int i = 0; i < content.Length; i++) {
-            if (content[i] != null) {
-                GameObject go = content[i];
-                content[i] = null;
-                return go;
-            }
+        if (!IsEmpty()) {
+            GameObject lastItem = content[content.Count - 1];
+            content.Remove(lastItem);
+            return lastItem;
         }
         return null;
     }
@@ -74,21 +69,19 @@ public abstract class Storage : MonoBehaviour {
     /// Returns true when no objects are stored
     /// </summary>
     public bool IsEmpty() {
-        foreach (GameObject go in content) {
-            if (go != null)
-                return false;
+        if (content.Count == 0) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     /// <summary>
     /// Returns true when the capacity limit is reached
     /// </summary>
     public bool IsFull() {
-        foreach (GameObject go in content) {
-            if (go == null)
-                return false;
+        if (content.Count >= maxCapacity - 1) {
+            return true;
         }
-        return true;
+        return false;
     }
 }

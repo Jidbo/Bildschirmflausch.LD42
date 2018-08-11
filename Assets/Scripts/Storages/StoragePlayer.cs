@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoragePlayer : Storage {
 
-    public StoragePlayer() : base (new string[] { "shelf", "crate", "pallet", "waste"}) {
+    public StoragePlayer() : base (new string[] { "shelf", "crate", "pallet", "waste"}, 1) {
 
     }
 
