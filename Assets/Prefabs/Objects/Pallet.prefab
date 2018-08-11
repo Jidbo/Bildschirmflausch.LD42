@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23193733489586628}
   - component: {fileID: 65954425484191338}
   - component: {fileID: 54337947114795714}
-  - component: {fileID: 114087653191383358}
+  - component: {fileID: 114312199025748794}
   m_Layer: 0
   m_Name: Pallet
   m_TagString: pallet
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114087653191383358
+--- !u!114 &114312199025748794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943071178220950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb68f9fec3e1a8140b2f6fe87e29b5a7, type: 3}
+  m_Script: {fileID: 11500000, guid: c891bc2e0ca364f9b8b4c5ef8aa78f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 2
-  shelf: {fileID: 1030100150646362, guid: c9d8c8707c88e354dbd8cdce6a20e611, type: 2}
+  shelf: {fileID: 1030100150646362, guid: a1dd28f321bd1484f877ffe83953870a, type: 2}
