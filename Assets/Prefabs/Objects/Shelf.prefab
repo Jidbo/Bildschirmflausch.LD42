@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23274023074821904}
   - component: {fileID: 65412953416518762}
   - component: {fileID: 54400310040469796}
-  - component: {fileID: 114591106757620240}
+  - component: {fileID: 114328910875761406}
   m_Layer: 0
   m_Name: Shelf
   m_TagString: shelf
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114591106757620240
+--- !u!114 &114328910875761406
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,11 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030100150646362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9964ab201da4c314688a08576020ebcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c47b2bb333e403d8113c43c62a3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 2
-  content:
-  - {fileID: 0}
-  - {fileID: 0}
-  bigShelf: {fileID: 1144656223927980, guid: 5fcd500e597e2024f84c06e5b4d31950, type: 2}
+  bigShelf: {fileID: 1144656223927980, guid: 1ef7cc74151a64b02b03db949fd883b2, type: 2}
