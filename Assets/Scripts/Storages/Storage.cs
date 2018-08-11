@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Storage : MonoBehaviour {
+    [SerializeField]
     protected int maxCapacity;
     protected GameObject[] content;
 
