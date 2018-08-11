@@ -21,6 +21,7 @@ ModelImporter:
     100030: Wheel
     100032: Truck
     100034: Wheels
+    100036: ForkLift
     400000: Armature
     400002: Base
     400004: Compartment
@@ -39,6 +40,7 @@ ModelImporter:
     400030: Wheel
     400032: Truck
     400034: Wheels
+    400036: ForkLift
     2100000: Material_001
     2100002: Material
     2100004: Material__ForkLiftTruck
