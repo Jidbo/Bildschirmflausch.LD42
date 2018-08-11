@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class StorageBigShelf : Storage
 {
+
     protected override bool CanStore(GameObject go)
     {
-        throw new System.NotImplementedException();
+        if (go.CompareTag("shelf") || go.CompareTag("waste"))
+        {
+            return true;
+        }
+        else return false;
     }
 
     protected override void OnObjectAdded(GameObject go)
     {
-        throw new System.NotImplementedException();
+        // nothing to craft
     }
 }

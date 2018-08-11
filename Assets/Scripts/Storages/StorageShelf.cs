@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StorageShelf : Storage
+public class StorageShelf : StorageBigShelf
 {
-    protected override bool CanStore(GameObject go)
-    {
-        throw new System.NotImplementedException();
-    }
-
+    /// <summary>
+    /// Crafts a big shelf out of itself and another shelf (out of its content)
+    /// if the content is empty otherwise
+    /// </summary>
     protected override void OnObjectAdded(GameObject go)
     {
-        throw new System.NotImplementedException();
+        bool craft = false;
+        if (go.CompareTag("shelf")) {
+           if (this.content[0].CompareTag("shelf")) {
+                craft = true;
+                for (int i = 0; i < content.Length; i++) {
+                    if (content[i] != null) {
+                        craft = false;
+                        break;
+                    }
+                }
+
+                if (craft) {
+                  // craft BigShelf
+                }
+            }
+        }     
     }
 }
