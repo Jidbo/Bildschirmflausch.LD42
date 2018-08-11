@@ -14,7 +14,7 @@ public class StorageShelf : StorageBigShelf
         if (go.CompareTag("shelf")) {
            if (this.content[0].CompareTag("shelf")) {
                 craft = true;
-                for (int i = 0; i < content.Length; i++) {
+                for (int i = 1; i < content.Length; i++) {
                     if (content[i] != null) {
                         craft = false;
                         break;
