@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-		rb.velocity = rb.velocity * acceleration + (1 - acceleration) * new Vector3(xSpeed, 0, zSpeed);
+		rb.velocity = rb.velocity * (1 - acceleration) + acceleration * new Vector3(xSpeed, 0, zSpeed);
 
         if(rb.velocity.magnitude >= 0.1)
 			t.LookAt(t.position + new Vector3((float)System.Math.Sin(rotationAngle), 0, (float)System.Math.Cos(rotationAngle)));
