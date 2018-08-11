@@ -143,10 +143,10 @@ MonoBehaviour:
   cooldown: 2.5
   timeTillSpawning: 0
   toSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1144656223927980, guid: 5fcd500e597e2024f84c06e5b4d31950, type: 2}
+  - {fileID: 1988164223302370, guid: a9b1996fa07c9ae45834bc2a5cee6779, type: 2}
+  - {fileID: 1943071178220950, guid: de1c8b876bc63c84f99e3c650810df9f, type: 2}
+  - {fileID: 1030100150646362, guid: c9d8c8707c88e354dbd8cdce6a20e611, type: 2}
 --- !u!4 &5210510
 Transform:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d03b1116a4ff24da5c7d8b13a3b746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 15
   acceleration: 0.9
 --- !u!114 &641299078
 MonoBehaviour:

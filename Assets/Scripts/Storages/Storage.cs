@@ -7,7 +7,7 @@ public abstract class Storage : MonoBehaviour {
     protected int maxCapacity;
 
     protected GameObject[] content;
-    ArrayList storableTags;
+    ArrayList storableTags = new ArrayList();
 
     private void Start() {
         content = new GameObject[maxCapacity];
