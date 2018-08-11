@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65954425484191338}
   - component: {fileID: 54337947114795714}
   - component: {fileID: 114312199025748794}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Pallet
   m_TagString: pallet
   m_Icon: {fileID: 0}

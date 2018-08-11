@@ -39,7 +39,7 @@ public abstract class Storage : MonoBehaviour {
             rb.detectCollisions = false;
             return true;
 		} else {
-            return false;    
+            return false;
         }
     }
 
@@ -63,7 +63,6 @@ public abstract class Storage : MonoBehaviour {
     /// </summary>
     /// <returns>The first gameobject found.</returns>
     public GameObject GetFromStorage() {
-        Debug.Log("Drop Item");
         if (!IsEmpty()) {
             GameObject lastItem = content[content.Count - 1];
             content.Remove(lastItem);

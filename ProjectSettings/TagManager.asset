@@ -21,10 +21,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Ground
+  - Objects
+  - Player
   - 
   - 
   - 

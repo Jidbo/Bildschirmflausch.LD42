@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65706518103161072}
   - component: {fileID: 54330547330545376}
   - component: {fileID: 114560567616144438}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BigShelf
   m_TagString: bigshelf
   m_Icon: {fileID: 0}

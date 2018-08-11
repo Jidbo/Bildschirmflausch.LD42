@@ -8,18 +8,10 @@ public class PlayerMovement : MonoBehaviour {
     float rotationSpeed = 150;
 	//[SerializeField]
     float movementSpeed = 10F;
-    [SerializeField]
-    float acceleration = 0.9f;
-
-    Rigidbody rb;
+    
     float forwardSpeed;
     float zSpeed;
     float rotationAngle;
-
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody>();
-	}
 
 	// Update is called once per frame
 	void Update () {

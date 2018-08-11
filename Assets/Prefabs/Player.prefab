@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604864035532884}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SpaceCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114491648166157604}
   - component: {fileID: 114435817871053298}
   - component: {fileID: 114663800128675144}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999987134424988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561ddc57cb7b64ee487c2323082b6131, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e431f4c42c1e4786a8b19c73d371133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114491648166157604
@@ -163,10 +163,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999987134424988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c75c2a3c49843cfb732a0b9b5ba05e, type: 3}
+  m_Script: {fileID: 11500000, guid: 00adb9453223b4f26bbfb90638a85296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.9
+  spaceCheck: {fileID: 1028538766240656}
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 20480
 --- !u!114 &114663800128675144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +178,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999987134424988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ab9c01a180745ad86cc63ea023c585, type: 3}
+  m_Script: {fileID: 11500000, guid: d8c4803a93fa0418a8b57fc037d0ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceCheck: {fileID: 1028538766240656}

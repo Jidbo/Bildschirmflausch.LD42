@@ -6,19 +6,18 @@ public class Player : MonoBehaviour {
     StoragePlayer playerStorage;
     [SerializeField]
     GameObject spaceCheck;
+    [SerializeField]
+    LayerMask obstacleLayerMask;
 
-    bool submitted;
-
-	void Start () {
+    void Start() {
+        playerStorage = GetComponent(typeof(StoragePlayer)) as StoragePlayer;
         playerStorage = GetComponent<StoragePlayer>();
-        submitted = false;
-	}
+    }
 
     private void Update() {
-        if (!submitted && Input.GetAxis("Submit") > 0) {
-            submitted = true;
+        if (Input.GetKeyDown(KeyCode.E)) {
             //gets all objects in front of the player
-            Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(0.49f, 0.49f, 0.49f));
+            Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.rotation, obstacleLayerMask);
 
             // tries to drop the item
             if (colliders.Length == 0 && playerStorage.GetFromStorage()) {
@@ -55,15 +54,13 @@ public class Player : MonoBehaviour {
                         }
                     }
                 } else {
-					//if the collider has no storage attached (e.g. crate)
+                    //if the collider has no storage attached (e.g. crate)
                     //tries to add the collider's gameobject to the player
                     if (playerStorage.AddToStorage(c.gameObject)) {
                         return;
                     }
                 }
             }
-        } else {
-            submitted = false;
         }
     }
 }
