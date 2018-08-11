@@ -13,7 +13,6 @@ public class TMPSpawner : MonoBehaviour {
     System.Random rnd;
 
     void Start() {
-        timeTillSpawning = cooldown;
         rnd = new System.Random();
     }
 
