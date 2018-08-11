@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class StorageShelf : Storage
 {
+    public StorageShelf() : base(new string[] { "crate", "pallet", "waste" })
+    {
 
-    protected override bool CanStore(GameObject go) {
-        return go.CompareTag("shelf") || go.CompareTag("crate") || go.CompareTag("pallet") || go.CompareTag("waste");
     }
 
     protected override void OnObjectAdded(GameObject go)

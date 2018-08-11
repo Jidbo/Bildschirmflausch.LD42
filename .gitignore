@@ -553,3 +553,5 @@ sysinfo.txt
 
 
 # End of https://www.gitignore.io/api/macos,unity,csharp,visualstudio
+
+ProjectSettings/ProjectVersion\.txt

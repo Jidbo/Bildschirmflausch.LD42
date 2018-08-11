@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoragePallet : Storage {
-    [SerializeField]
-    GameObject shelf;
+public class StoragePallet : Storage
+{
 
-    protected override bool CanStore(GameObject go) {
-        return go.CompareTag("crate");
+    public StoragePallet() : base(new string[] { "crate" })
+    {
+
     }
 
     protected override void OnObjectAdded(GameObject go) {

@@ -2,19 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Storage : MonoBehaviour {
+public abstract class Storage : MonoBehaviour
+{
     [SerializeField]
     protected int maxCapacity;
     protected GameObject[] content;
 
-    private void Start() {
+    ArrayList storableTags;
+
+    private void Start()
+    {
         content = new GameObject[maxCapacity];
+    }
+
+    /// <summary>
+    /// Constructor for a storage object.
+    /// </summary>
+    /// <param name="storableTags">A list of tags which can be stored.</param>
+    public Storage(string[] storableTags)
+    {
+        foreach (string i in storableTags)
+            this.storableTags.Add(i);
     }
 
     /// <summary>
     /// Adds the given GameObject to the first empty slot
     /// </summary>
-    public bool AddToStorage(GameObject newGO) {
+    /// <param name="newGO">The gameobject which should be stored.</param>
+    /// <returns>Returns true, if the object is storable</returns>
+    public bool AddToStorage(GameObject newGO)
+    {
         if (CanStore(newGO)) {
             for (int i = 0; i < content.Length; i++)
             {
@@ -32,16 +49,23 @@ public abstract class Storage : MonoBehaviour {
     /// <summary>
     /// Gets called when an object is added to the storage (Used for crafting)
     /// </summary>
+    /// <param name="go">The object which should be added.</param>
     protected abstract void OnObjectAdded(GameObject go);
     
     /// <summary>
     /// Checks whether or not the type of the given GameObject can be stored
     /// </summary>
-    protected abstract bool CanStore(GameObject go);
+    /// <param name="go">The Gameobject wich should be checked.</param>
+    /// <returns>True, if the object is storable.</returns>
+    protected bool CanStore(GameObject go)
+    {
+        return storableTags.Contains(go.tag);
+    }
 
     /// <summary>
     /// Removes and returns the first GameObject it finds
     /// </summary>
+    /// <returns>The first gameobject found.</returns>
     public GameObject GetFromStorage() {
         for (int i = 0; i < content.Length; i++) {
             if (content[i] != null) {
