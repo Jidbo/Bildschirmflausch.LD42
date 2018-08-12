@@ -13,7 +13,7 @@ public class Camera : MonoBehaviour {
         offset = player.transform.position - transform.position;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = player.transform.eulerAngles.y;

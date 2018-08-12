@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 33667988855332184}
   - component: {fileID: 23010668489641782}
   - component: {fileID: 64393835067963850}
-  - component: {fileID: 65267080448834768}
   m_Layer: 0
   m_Name: Ramp
   m_TagString: Untagged
@@ -362,18 +361,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65267080448834768
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149438201086350}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 20, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65331429359775372
 BoxCollider:
