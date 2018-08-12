@@ -111,7 +111,7 @@ public abstract class Storage : MonoBehaviour {
     }
 
     public bool IsStanding() {
-        return true;
+        return transform.up.y >= 0.9;
     }
 
     private void FixedUpdate() {
