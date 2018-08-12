@@ -10,18 +10,15 @@ public class Camera : MonoBehaviour {
 
     void Start()
     {
-        offset = player.transform.position - transform.position;
+        offset = transform.position - player.transform.position;
     }
 
     void FixedUpdate()
     {
-        float currentAngle = transform.eulerAngles.y;
-        float desiredAngle = player.transform.eulerAngles.y;
-        float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * damping);
+        Vector3 desiredPosition = player.transform.position + offset;
+        Vector3 position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * damping);
+        transform.position = position;
 
-        Quaternion rotation = Quaternion.Euler(0, angle, 0);
-        transform.position = player.transform.position - (rotation * offset);
-
-        transform.LookAt(player.transform);
+        transform.LookAt(player.transform.position);
     }
 }
