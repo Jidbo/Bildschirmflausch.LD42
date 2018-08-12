@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49732ba99505ca746a5061533102df49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2038891367}
   damping: 1
 --- !u!1 &806875109
 GameObject:
@@ -981,6 +981,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2038891367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1999987134424988, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2009342600}
 --- !u!1001 &2069309408
 Prefab:
   m_ObjectHideFlags: 0
@@ -1037,7 +1042,7 @@ Prefab:
     - target: {fileID: 114778944196268528, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
         type: 2}
       propertyPath: cooldown
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}
