@@ -6,7 +6,7 @@ public class StorageShelf : Storage {
     [SerializeField]
     GameObject bigShelf;
 
-    public StorageShelf() : base(new string[] { "waste", "shelf" }) {
+    public StorageShelf() : base(new string[] { "waste", "shelf" , "crate" }) {
 
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StorageBigShelf : Storage {
-    public StorageBigShelf() : base(new string[] { "waste" }) {
+    public StorageBigShelf() : base(new string[] { "crate", "waste" }) {
 
     }
 
