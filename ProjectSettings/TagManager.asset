@@ -9,6 +9,7 @@ TagManager:
   - bigshelf
   - pallet
   - waste
+  - PauseUI
   layers:
   - Default
   - TransparentFX
