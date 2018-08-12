@@ -9,6 +9,8 @@ public class TMPSpawner : MonoBehaviour {
     public float timeTillSpawning;
     [SerializeField]
     public List<GameObject> toSpawn;
+    [SerializeField]
+    public float rotation = 30f;
 
     System.Random rnd;
 
