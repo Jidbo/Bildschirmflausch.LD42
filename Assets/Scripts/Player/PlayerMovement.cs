@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour {
         mSpeed = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
         rSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
 
+        if (mSpeed <= 0) {
+            mSpeed /= 2;
+        }
+
         transform.Rotate(0, rSpeed, 0);
         transform.Translate(0, 0, mSpeed);
     }

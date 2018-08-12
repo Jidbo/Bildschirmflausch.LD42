@@ -6,20 +6,27 @@ public abstract class Storage : MonoBehaviour {
     
     protected int maxCapacity;
 
-    protected List<GameObject> content;
+    [SerializeField]
+    protected GameObject[] content;
+    [SerializeField]
+    protected List<Transform> positions;
+    [SerializeField]
+    protected int currentAmount;
     ArrayList storableTags = new ArrayList();
 
     private void Start() {
-        content = new List<GameObject>();
+        maxCapacity = positions.Count;
+        currentAmount = 0;
+        content = new GameObject[maxCapacity];
     }
 
     /// <summary>
     /// Constructor for a storage object.
     /// </summary>
     /// <param name="storableTags">A list of tags which can be stored.</param>
-    public Storage(string[] storableTags, int maxCapacity) {
+    /// <param name="maxCapacity">The capacity of this storage.</param>
+    public Storage(string[] storableTags) {
         this.storableTags.AddRange(storableTags);
-        this.maxCapacity = maxCapacity;
     }
 
     /// <summary>
@@ -28,18 +35,23 @@ public abstract class Storage : MonoBehaviour {
     /// <param name="newGO">The gameobject which should be stored.</param>
     /// <returns>Returns true, if the object is storable</returns>
     public bool AddToStorage(GameObject newGO) {
-        // TODO correct scaling and position
         if (!IsFull() && CanStore(newGO)) {
-            content.Add(newGO);
+            currentAmount++;
+            content[currentAmount - 1] = newGO;
             OnObjectAdded(newGO);
-            newGO.transform.parent = gameObject.transform;
+            newGO.transform.parent = GetCorrectParent();
+            newGO.transform.localPosition = Vector3.zero;
+            newGO.transform.rotation = new Quaternion();
             Rigidbody rb = newGO.GetComponent<Rigidbody>();
             rb.isKinematic = true;
-            rb.detectCollisions = false;
             return true;
 		} else {
             return false;
         }
+    }
+
+    private Transform GetCorrectParent() {
+        return positions[currentAmount - 1];
     }
 
     /// <summary>
@@ -63,12 +75,12 @@ public abstract class Storage : MonoBehaviour {
     /// <returns>The first gameobject found.</returns>
     public GameObject GetFromStorage() {
         if (!IsEmpty()) {
-            GameObject lastItem = content[content.Count - 1];
-            content.Remove(lastItem);
+            currentAmount--;
+            GameObject lastItem = content[currentAmount];
+            content[currentAmount] = null;
             lastItem.transform.parent = null;
             Rigidbody rb = lastItem.GetComponent<Rigidbody>();
             rb.isKinematic = false;
-            rb.detectCollisions = true;
             return lastItem;
         }
         return null;
@@ -78,18 +90,21 @@ public abstract class Storage : MonoBehaviour {
     /// Returns true when no objects are stored
     /// </summary>
     public bool IsEmpty() {
-        if (content.Count <= 0) {
-            return true;
-        }
-        return false;
+        return currentAmount == 0;
     }
 
     /// <summary>
     /// Returns true when the capacity limit is reached
     /// </summary>
     public bool IsFull() {
-        if (content.Count >= maxCapacity) {
-            return true;
+        return currentAmount == maxCapacity;
+    }
+
+    public bool Contains(GameObject go) {
+        foreach(GameObject g in content) {
+            if(g == go) {
+                return true;
+            }
         }
         return false;
     }
