@@ -12,7 +12,7 @@ public abstract class Storage : MonoBehaviour {
     protected List<Transform> positions;
     [SerializeField]
     protected int currentAmount;
-    ArrayList storableTags = new ArrayList();
+    protected ArrayList storableTags = new ArrayList();
 
     private void Start() {
         maxCapacity = positions.Count;
@@ -65,7 +65,7 @@ public abstract class Storage : MonoBehaviour {
     /// </summary>
     /// <param name="go">The Gameobject wich should be checked.</param>
     /// <returns>True, if the object is storable.</returns>
-    protected bool CanStore(GameObject go) {
+    protected virtual bool CanStore(GameObject go) {
         return storableTags.Contains(go.tag);
     }
 

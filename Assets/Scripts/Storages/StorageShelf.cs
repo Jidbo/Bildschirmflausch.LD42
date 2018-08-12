@@ -10,19 +10,23 @@ public class StorageShelf : Storage {
 
     }
 
+    protected override bool CanStore(GameObject go) {
+        if (go.CompareTag("shelf")) {
+            return IsEmpty();
+        }
+        return storableTags.Contains(go.tag);
+    }
+
     protected override void OnObjectAdded(GameObject go) {
         if (go.CompareTag("shelf")) {
-            for (int i = 1; i < currentAmount - 1; i++) {
-                if (content[i] != null) {
-                    return;
+            if (currentAmount == 1) {
+                GameObject newBigShelf = UnityEngine.Object.Instantiate(bigShelf);
+                newBigShelf.transform.position = transform.position;
+                foreach (GameObject c in content) {
+                    Destroy(c);
                 }
+                Destroy(gameObject);
             }
-            GameObject newBigShelf = UnityEngine.Object.Instantiate(bigShelf);
-            newBigShelf.transform.position = transform.position;
-            foreach(GameObject c in content) {
-                Destroy(c);
-            }
-            Destroy(gameObject);
         }
     }
 }

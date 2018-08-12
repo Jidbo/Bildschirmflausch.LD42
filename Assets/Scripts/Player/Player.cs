@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
         playerStorage = GetComponent<StoragePlayer>();
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             //gets all objects in front of the player
             Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1f, 1f, 0.5f), transform.rotation, obstacleLayerMask);
@@ -43,8 +43,13 @@ public class Player : MonoBehaviour {
                             GameObject obj = colliderStorage.GetFromStorage();
                             if(obj == null) {
                                 playerStorage.AddToStorage(c.gameObject);
+                                return;
                             } else {
-                                playerStorage.AddToStorage(obj);
+                                if (playerStorage.AddToStorage(obj)) {
+                                    return;
+                                } else {
+                                    colliderStorage.AddToStorage(obj);
+                                }
                             }
                         }
                     } else if (playerStorage.AddToStorage(c.gameObject)) {
