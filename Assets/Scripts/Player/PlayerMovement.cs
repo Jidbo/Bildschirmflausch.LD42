@@ -4,23 +4,22 @@ using UnityEngine;
 using System;
 
 public class PlayerMovement : MonoBehaviour {
-    float rotationSpeed = 150;
+    [SerializeField]
+    float rotationSpeed = 2.3f;
+
     float movementSpeed = 10;
+
+    float rotationAngle = (float) Math.PI * 0.5f;
     
-    float mSpeed;
-    float rSpeed;
-    float rotationAngle;
-
-	// Update is called once per frame
-	void Update () {
-        mSpeed = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
-        rSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
-
-        if (mSpeed <= 0) {
-            mSpeed /= 2;
-        }
-
-        transform.Rotate(0, rSpeed, 0);
-        transform.Translate(0, 0, mSpeed);
+	void FixedUpdate () {
+        rotationAngle = (rotationAngle + (Input.GetAxis("Vertical") < 0 ? 1 : -1) * Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
+        while (rotationAngle < -Math.PI)
+            rotationAngle += 2 * (float) Math.PI;
+        while (rotationAngle > Math.PI)
+            rotationAngle -= 2 * (float)Math.PI;
+        Vector3 facing = Vector3.Normalize(new Vector3((float) Math.Cos(rotationAngle), 0, (float) Math.Sin(rotationAngle)));
+        Rigidbody rb = GetComponent<Rigidbody>();
+        transform.LookAt(transform.position + facing);
+        rb.velocity = facing * movementSpeed * Input.GetAxis("Vertical");
     }
 }
