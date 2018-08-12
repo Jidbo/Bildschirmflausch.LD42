@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     float rotationAngle = (float) Math.PI * 0.5f;
     
 	void FixedUpdate () {
-        rotationAngle = (rotationAngle + (Input.GetAxis("Vertical") < 0 ? 1 : -1) * Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
+        rotationAngle = (rotationAngle - Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
         while (rotationAngle < -Math.PI)
             rotationAngle += 2 * (float) Math.PI;
         while (rotationAngle > Math.PI)
