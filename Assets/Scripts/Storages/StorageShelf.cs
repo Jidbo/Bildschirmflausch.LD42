@@ -22,11 +22,16 @@ public class StorageShelf : Storage {
             if (currentAmount == 1) {
                 GameObject newBigShelf = UnityEngine.Object.Instantiate(bigShelf);
                 newBigShelf.transform.position = transform.position;
+                newBigShelf.transform.rotation = transform.rotation;
                 foreach (GameObject c in content) {
                     Destroy(c);
                 }
                 Destroy(gameObject);
             }
         }
+    }
+
+    protected override void OnObjectRemoved(GameObject go) {
+
     }
 }

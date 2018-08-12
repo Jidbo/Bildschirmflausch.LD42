@@ -20,4 +20,8 @@ public class StoragePallet : Storage {
             Destroy(gameObject);
         }
     }
+
+    protected override void OnObjectRemoved(GameObject go) {
+
+    }
 }

@@ -21,6 +21,9 @@ public class Player : MonoBehaviour {
         //runs through all colliders
         foreach (Collider c in colliders)
         {
+            if (c.gameObject.layer == 12) {
+                isSpaceInFront = false;
+            }
             if (c.gameObject.transform.parent == null)
             {
                 isSpaceInFront = false;
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour {
                     if (playerStorage.IsFull())
                     {
                         //takes the item from the player 
-                        GameObject obj = playerStorage.GetFromStorage();
+                        GameObject obj = playerStorage.TakeFromStorage();
                         //tries to insert the item into the object's storage
                         if (colliderStorage.AddToStorage(obj))
                         {
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour {
                     }
                     else
                     {
-                        GameObject obj = colliderStorage.GetFromStorage();
+                        GameObject obj = colliderStorage.TakeFromStorage();
                         if (obj == null)
                         {
                             playerStorage.AddToStorage(c.gameObject);
@@ -76,13 +79,11 @@ public class Player : MonoBehaviour {
         //tries to drop the current Item
         if (isSpaceInFront)
         {
-            playerStorage.GetFromStorage();
+            playerStorage.TakeFromStorage();
         }
     }
 
     private void Update() {
-        Animator animForkLiftTruck = GetComponent<Animator>();
-
         if (Input.GetKeyDown(KeyCode.E)) {
             UseAction();
             Animator playerAnimator = GetComponent<Animator>();

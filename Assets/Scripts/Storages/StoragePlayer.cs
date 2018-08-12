@@ -11,4 +11,8 @@ public class StoragePlayer : Storage {
     protected override void OnObjectAdded(GameObject go) {
 
     }
+
+    protected override void OnObjectRemoved(GameObject go) {
+
+    }
 }

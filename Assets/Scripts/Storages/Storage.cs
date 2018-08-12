@@ -14,9 +14,8 @@ public abstract class Storage : MonoBehaviour {
     protected int currentAmount;
     protected ArrayList storableTags = new ArrayList();
 
-    private void Start() {
+    private void Start() { 
         maxCapacity = positions.Count;
-        currentAmount = 0;
         content = new GameObject[maxCapacity];
     }
 
@@ -35,7 +34,7 @@ public abstract class Storage : MonoBehaviour {
     /// <param name="newGO">The gameobject which should be stored.</param>
     /// <returns>Returns true, if the object is storable</returns>
     public bool AddToStorage(GameObject newGO) {
-        if (!IsFull() && CanStore(newGO)) {
+        if (!IsFull() && CanStore(newGO) && IsStanding()) {
             currentAmount++;
             content[currentAmount - 1] = newGO;
             OnObjectAdded(newGO);
@@ -44,6 +43,8 @@ public abstract class Storage : MonoBehaviour {
             newGO.transform.rotation = new Quaternion();
             Rigidbody rb = newGO.GetComponent<Rigidbody>();
             rb.isKinematic = true;
+            rb.useGravity = false;
+            rb.detectCollisions = false;
             return true;
 		} else {
             return false;
@@ -73,18 +74,26 @@ public abstract class Storage : MonoBehaviour {
     /// Removes and returns the first GameObject it finds
     /// </summary>
     /// <returns>The first gameobject found.</returns>
-    public GameObject GetFromStorage() {
-        if (!IsEmpty()) {
+    public GameObject TakeFromStorage() {
+        if (!IsEmpty() && CanTake()) {
             currentAmount--;
             GameObject lastItem = content[currentAmount];
             content[currentAmount] = null;
             lastItem.transform.parent = null;
             Rigidbody rb = lastItem.GetComponent<Rigidbody>();
             rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.detectCollisions = true;
             return lastItem;
         }
         return null;
     }
+
+    protected virtual bool CanTake() {
+        return true;
+    }
+
+    protected abstract void OnObjectRemoved(GameObject go);
 
     /// <summary>
     /// Returns true when no objects are stored
@@ -100,12 +109,15 @@ public abstract class Storage : MonoBehaviour {
         return currentAmount == maxCapacity;
     }
 
-    public bool Contains(GameObject go) {
-        foreach(GameObject g in content) {
-            if(g == go) {
-                return true;
+    public bool IsStanding() {
+        return transform.up.y >= .9f;
+    }
+
+    private void FixedUpdate() {
+        if (!IsStanding()) {
+            while (!IsEmpty()) {
+                TakeFromStorage();
             }
         }
-        return false;
     }
 }

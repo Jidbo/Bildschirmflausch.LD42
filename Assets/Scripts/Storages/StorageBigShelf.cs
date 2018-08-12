@@ -10,5 +10,9 @@ public class StorageBigShelf : Storage {
     protected override void OnObjectAdded(GameObject go) {
         // nothing to craft
     }
+
+    protected override void OnObjectRemoved(GameObject go) {
+        
+    }
 }
  
