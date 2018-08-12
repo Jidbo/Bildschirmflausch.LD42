@@ -10,6 +10,7 @@ TagManager:
   - pallet
   - waste
   - PauseUI
+  - palletstack
   layers:
   - Default
   - TransparentFX

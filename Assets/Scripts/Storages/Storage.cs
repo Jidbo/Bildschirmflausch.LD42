@@ -14,7 +14,7 @@ public abstract class Storage : MonoBehaviour {
     protected int currentAmount;
     protected ArrayList storableTags = new ArrayList();
 
-    private void Start() { 
+    private void Awake() { 
         maxCapacity = positions.Count;
         content = new GameObject[maxCapacity];
     }
@@ -37,7 +37,6 @@ public abstract class Storage : MonoBehaviour {
         if (!IsFull() && CanStore(newGO) && IsStanding()) {
             currentAmount++;
             content[currentAmount - 1] = newGO;
-            OnObjectAdded(newGO);
             newGO.transform.parent = GetCorrectParent();
             newGO.transform.localPosition = Vector3.zero;
             newGO.transform.rotation = new Quaternion();
@@ -45,6 +44,7 @@ public abstract class Storage : MonoBehaviour {
             rb.isKinematic = true;
             rb.useGravity = false;
             rb.detectCollisions = false;
+            OnObjectAdded(newGO);
             return true;
 		} else {
             return false;
@@ -84,6 +84,7 @@ public abstract class Storage : MonoBehaviour {
             rb.isKinematic = false;
             rb.useGravity = true;
             rb.detectCollisions = true;
+            OnObjectRemoved(lastItem);
             return lastItem;
         }
         return null;
@@ -110,7 +111,7 @@ public abstract class Storage : MonoBehaviour {
     }
 
     public bool IsStanding() {
-        return transform.up.y >= .9f;
+        return true;
     }
 
     private void FixedUpdate() {
