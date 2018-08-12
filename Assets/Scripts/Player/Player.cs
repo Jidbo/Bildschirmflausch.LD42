@@ -84,17 +84,9 @@ public class Player : MonoBehaviour {
         Animator animForkLiftTruck = GetComponent<Animator>();
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            //saves if the player holds an item
-            bool hasAnItem = playerStorage.IsFull();
-            
             UseAction();
-
-            //determines the animation to play
-            if (hasAnItem && !playerStorage.IsFull())
-                animForkLiftTruck.Play("LiftDown");
-            
-            if (!hasAnItem && playerStorage.IsFull())
-                animForkLiftTruck.Play("LiftUp");
+            Animator playerAnimator = GetComponent<Animator>();
+            playerAnimator.SetBool("isLiftUp", (playerStorage.IsFull() ? true : false));
         }
     }
 }
