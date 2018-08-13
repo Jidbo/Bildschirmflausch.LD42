@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour {
     GameObject GameOverUI;
     [SerializeField]
     GameObject player;
+    [SerializeField]
+    public GameObject PowerUpManager;
 
     bool isDisplayed;
     float timeToDisplay;
