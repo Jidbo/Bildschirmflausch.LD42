@@ -31,12 +31,25 @@ public class Waste : MonoBehaviour {
         } else if (currentTimeTillBoom < maxTimeTillBoom) {
             currentTimeTillBoom += regenerationAmount;
         }
+
+        if (CollidesWithHazard())
+            Explode();
     }
 
     private bool CollidesWithWaste() {
         Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(0.4f, 0.8f, 0.4f), transform.rotation);
         foreach (Collider c in colliders) {
             if(c.gameObject.CompareTag("waste") && c.gameObject != gameObject) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool CollidesWithHazard() {
+        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(0.4f, 0.8f, 0.4f), transform.rotation);
+        foreach (Collider c in colliders) {
+            if (c.gameObject.CompareTag("hazard") && c.gameObject != gameObject) {
                 return true;
             }
         }

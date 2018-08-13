@@ -22,6 +22,7 @@ public class StoragePallet : Storage {
             foreach (GameObject c in content) {
                 Destroy(c);
             }
+            GameController.instance.updateScore(20);
             Destroy(gameObject);
         }
         else if (go.CompareTag("pallet")) {

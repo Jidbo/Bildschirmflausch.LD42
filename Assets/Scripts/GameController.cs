@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     GameObject ScoreText;
 
     float lastTime = 0;
-    float gameScore = 0;
+    int gameScore = 0;
 
     enum GameState {PAUSED, PLAYING};
 
@@ -25,8 +25,10 @@ public class GameController : MonoBehaviour {
     }
 
 	private void Start() {
+        Time.timeScale = 1;
         lastTime = Time.time;
-	}
+        ScoreText.GetComponent<Text>().text = "Score: 0";
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -54,6 +56,8 @@ public class GameController : MonoBehaviour {
         } else {
             pausedPressed = false;
         }
+
+        updateScore((int) Time.deltaTime);    
 	}
 
     public void Pause() {
@@ -66,9 +70,10 @@ public class GameController : MonoBehaviour {
         currentGameState = GameState.PLAYING;
     }
 
-    public void updateScore(float toAdd) {
+    public void updateScore(int toAdd) {
         gameScore += toAdd;
-        ScoreText.GetComponent<Text>().text = gameScore.ToString();
+        int spacePadding = 10 - gameScore.ToString().Length;
+        ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + gameScore.ToString();
     }
 
     public float getCurrentScore() {

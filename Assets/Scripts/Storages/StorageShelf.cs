@@ -26,6 +26,7 @@ public class StorageShelf : Storage {
                 foreach (GameObject c in content) {
                     Destroy(c);
                 }
+                GameController.instance.updateScore(50);
                 Destroy(gameObject);
             }
         }

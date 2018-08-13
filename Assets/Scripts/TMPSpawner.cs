@@ -33,6 +33,9 @@ public class TMPSpawner : MonoBehaviour {
         if (toSpawn.Count > 0) {
             GameObject newObstacle = Instantiate(toSpawn[rnd.Next(toSpawn.Count)]);
             newObstacle.transform.position = transform.position;
+            if (newObstacle.CompareTag("waste")) {
+                GameController.instance.updateScore(10);
+            }
         }
     }
 }
