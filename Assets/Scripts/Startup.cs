@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[InitializeOnLoad]
 public class Startup : MonoBehaviour {
     [SerializeField]
     GameObject bigShelf;
