@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 
     private void UseAction() {
         //gets all objects in front of the player
-        Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1f, 1f, 0.5f), transform.rotation, obstacleLayerMask);
+        Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1.5f, 1.5f, 0.75f), transform.rotation, obstacleLayerMask);
         bool isSpaceInFront = true;
 
         //runs through all colliders

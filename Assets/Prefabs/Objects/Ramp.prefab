@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33045250466154834}
   - component: {fileID: 23246487701260180}
   - component: {fileID: 65501398957122080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33920695178050628}
   - component: {fileID: 23788201146328562}
   - component: {fileID: 65251278264431824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33667988855332184}
   - component: {fileID: 23010668489641782}
   - component: {fileID: 64393835067963850}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4955614617818692}
   - component: {fileID: 114778944196268528}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33828203905081224}
   - component: {fileID: 23989427039659598}
   - component: {fileID: 65331429359775372}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

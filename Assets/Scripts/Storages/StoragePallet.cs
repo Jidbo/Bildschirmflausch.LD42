@@ -29,7 +29,6 @@ public class StoragePallet : Storage {
             newPalletStack.transform.position = transform.position;
             newPalletStack.transform.rotation = transform.rotation;
             StoragePalletStack palletStackStorage = newPalletStack.GetComponent<StoragePalletStack>();
-            Debug.Log(palletStackStorage.IsFull());
             palletStackStorage.AddToStorage(go);
             Destroy(gameObject);
         }
