@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
     GameObject WasteNotification;
     [SerializeField]
     GameObject GameOverUI;
+    [SerializeField]
+    GameObject player;
 
     bool isDisplayed;
     float timeToDisplay;
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour {
         ScoreText.GetComponent<Text>().text = "Score: 0";
         isDisplayed = false;
         WasteNotification.SetActive(false);
+        player.GetComponent<PlayerMovement>().ToggleControlledMovement(true);
     }
 
 	// Update is called once per frame
@@ -106,6 +109,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void showGameOverUI() {
+        player.GetComponent<PlayerMovement>().ToggleControlledMovement(false);
         UIController ui = GameOverUI.GetComponent<UIController>();
         currentGameState = GameState.GAMEOVER;
         if (ui != null) {

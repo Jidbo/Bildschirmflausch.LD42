@@ -34,4 +34,8 @@ public class PlayerMovement : MonoBehaviour {
             rb.velocity = facing * vSpeed;
         }
     }
+
+    public void ToggleControlledMovement(bool shouldBeMoveable) {
+        controllable = shouldBeMoveable;
+    }
 }

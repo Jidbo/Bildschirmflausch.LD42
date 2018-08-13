@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.117
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12010927, g: 0.12322625, b: 0.11422259, a: 0.117}
+  m_IndirectSpecularColor: {r: 0.12010912, g: 0.1232261, b: 0.11422252, a: 0.117}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1038,6 +1038,11 @@ Prefab:
       propertyPath: GameOverUI
       value: 
       objectReference: {fileID: 1182812892}
+    - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2038891367}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
   m_IsPrefabAsset: 0
@@ -1853,26 +1858,6 @@ Prefab:
       propertyPath: soundeffects.Array.data[2]
       value: 
       objectReference: {fileID: 682359752}
-    - target: {fileID: 65642966105975148, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 65642966105975148, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
-        type: 2}
-      propertyPath: m_Size.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114435817871053298, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114435817871053298, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
-        type: 2}
-      propertyPath: movementSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f, type: 2}
   m_IsPrefabAsset: 0
