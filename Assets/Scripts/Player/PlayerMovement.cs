@@ -14,27 +14,33 @@ public class PlayerMovement : MonoBehaviour {
 
     bool controllable = true;
 
+    [SerializeField]
     float rotationAngle = (float) Math.PI * 0.5f;
 
     private void Update() {
         if (controllable) {
             hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
             vSpeed = Input.GetAxis("Vertical") * movementSpeed;
-            AudioControl audioControll = GameController.instance.GetAudio();
-            if (Input.GetAxis("Vertical") < 0) {
-                if (audioControll.SfxPlaying(0)) {
-                    audioControll.SfxStop(0);
+            try {
+                AudioControl audioControl = GameController.instance.GetAudio();
+                if (Input.GetAxis("Vertical") < 0) {
+                    if (audioControl.SfxPlaying(0)) {
+                        audioControl.SfxStop(0);
+                    }
+                    if (!audioControl.SfxPlaying(1)) {
+                        audioControl.SfxPlay(1);
+                    }
+                } else {
+                    if (audioControl.SfxPlaying(1)) {
+                        audioControl.SfxStop(1);
+                    }
+                    if (!audioControl.SfxPlaying(0)) {
+                        audioControl.SfxPlay(0);
+                    }
                 }
-                if (!audioControll.SfxPlaying(1)) {
-                    audioControll.SfxPlay(1);
-                }
-            } else {
-                if (audioControll.SfxPlaying(1)) {
-                    audioControll.SfxStop(1);
-                }
-                if (!audioControll.SfxPlaying(0)) {
-                    audioControll.SfxPlay(0);
-                }
+            }
+            catch (Exception e) {
+
             }
         }
     }

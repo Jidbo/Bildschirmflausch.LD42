@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,12 @@ public class StorageShelf : Storage {
                 foreach (GameObject c in content) {
                     Destroy(c);
                 }
-                GameController.instance.updateScore(50);
+                try {
+                    GameController.instance.updateScore(50);
+                }
+                catch (Exception e) {
+
+                }
                 Destroy(gameObject);
             }
         }

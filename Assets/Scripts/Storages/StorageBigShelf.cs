@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,11 @@ public class StorageBigShelf : Storage {
         // nothing to craft
         if (IsFull() && !wasFull) {
             wasFull = true;
-            GameController.instance.updateScore(70);
+            try {
+                GameController.instance.updateScore(70);
+            }catch(Exception e) {
+
+            }
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,12 @@ public class StoragePallet : Storage {
             foreach (GameObject c in content) {
                 Destroy(c);
             }
-            GameController.instance.updateScore(20);
+            try{
+                GameController.instance.updateScore(20);
+            }
+            catch (Exception e) {
+
+            }
             Destroy(gameObject);
         }
         else if (go.CompareTag("pallet")) {

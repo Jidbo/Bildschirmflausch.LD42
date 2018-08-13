@@ -12,11 +12,6 @@ public class AudioControl : MonoBehaviour
 
     public enum Sfx { idle, back, updown };
 
-    // Use this for initialization
-    void Start()
-    { 
-
-    }
     public void GameOverBgm()
     {
         maintheme.Stop();
