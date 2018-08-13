@@ -16,13 +16,11 @@ public class StorageBigShelf : Storage {
             try {
                 GameController.instance.updateScore(70);
             }catch(Exception e) {
-
+                Debug.Log(e);
             }
         }
     }
 
-    protected override void OnObjectRemoved(GameObject go) {
-        
-    }
+    protected override void OnObjectRemoved(GameObject go) {}
 }
  

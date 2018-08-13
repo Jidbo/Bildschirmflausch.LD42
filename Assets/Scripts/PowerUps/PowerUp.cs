@@ -11,12 +11,6 @@ public class PowerUp : MonoBehaviour {
         manager = GameController.instance.PowerUpManager;
     }
 	
-	// Update is called once per frame 
-	void Update () {
-     
-	}
-
-
     public void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Player")) {
             manager.GetComponent<PowerUpManager>().OnPickup("slow");

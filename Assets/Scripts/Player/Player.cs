@@ -19,66 +19,48 @@ public class Player : MonoBehaviour {
         bool isSpaceInFront = true;
 
         //runs through all colliders
-        foreach (Collider c in colliders)
-        {
+        foreach (Collider c in colliders) {
             if (c.gameObject.layer == 12) {
                 isSpaceInFront = false;
             }
-            if (c.gameObject.transform.parent == null)
-            {
+            if (c.gameObject.transform.parent == null) {
                 isSpaceInFront = false;
                 //tries to get the collider's Storage component and saves it in colliderStorage
                 Storage colliderStorage = c.gameObject.GetComponent<Storage>();
 
                 //checks if the collider has a Storage attached
-                if (colliderStorage != null)
-                {
+                if (colliderStorage != null) {
                     //checks if the player is holding an item
-                    if (playerStorage.IsFull())
-                    {
+                    if (playerStorage.IsFull()) {
                         //takes the item from the player 
                         GameObject obj = playerStorage.TakeFromStorage();
                         //tries to insert the item into the object's storage
-                        if (colliderStorage.AddToStorage(obj))
-                        {
+                        if (colliderStorage.AddToStorage(obj)) {
                             return;
-                        }
-                        else
-                        {
+                        } else {
                             //returns the item to the player, if storing failed
                             playerStorage.AddToStorage(obj);
                         }
-                    }
-                    else
-                    {
+                    } else {
                         GameObject obj = colliderStorage.TakeFromStorage();
-                        if (obj == null)
-                        {
+                        if (obj == null) {
                             playerStorage.AddToStorage(c.gameObject);
                             return;
-                        }
-                        else
-                        {
-                            if (playerStorage.AddToStorage(obj))
-                            {
+                        } else {
+                            if (playerStorage.AddToStorage(obj)) {
                                 return;
-                            }
-                            else
-                            {
+                            } else {
                                 colliderStorage.AddToStorage(obj);
                             }
                         }
                     }
-                }
-                else if (playerStorage.AddToStorage(c.gameObject))
-                {
+                } else if (playerStorage.AddToStorage(c.gameObject)) {
                     return;
                 }
             }
         }
         //tries to drop the current Item
-        if (isSpaceInFront)
-        {
+        if (isSpaceInFront) {
             playerStorage.TakeFromStorage();
         }
     }

@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
             }
             catch (Exception e) {
-
+                Debug.Log(e);
             }
         }
     }

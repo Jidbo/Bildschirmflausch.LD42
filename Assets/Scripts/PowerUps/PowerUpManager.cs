@@ -35,7 +35,6 @@ public class PowerUpManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
         if (powerUpType.Equals("slow")) {
             if (running) {
                 if (!powerUpEnabled) {
@@ -56,8 +55,6 @@ public class PowerUpManager : MonoBehaviour {
                 }
             }        
         }
-
-
 	}
 
 
@@ -65,5 +62,4 @@ public class PowerUpManager : MonoBehaviour {
         powerUpType = type;
         running = true;
     }
-
 }

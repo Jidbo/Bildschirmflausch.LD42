@@ -129,7 +129,7 @@ public class GameController : MonoBehaviour {
             }
         }
         catch (Exception e) {
-
+            Debug.Log(e);
         }
     }
 

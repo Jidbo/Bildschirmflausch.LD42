@@ -10,13 +10,11 @@ public class Camera : MonoBehaviour {
     public float damping = 1.0f;
     Vector3 offset;
 
-    void Start()
-    {
+    void Start() {
         offset = player.transform.position - transform.position;
     }
 
-    void LateUpdate()
-    {
+    void LateUpdate() {
 
         float px = player.transform.position.x - offset.x;
         float py = player.transform.position.z - offset.z;
@@ -28,8 +26,7 @@ public class Camera : MonoBehaviour {
         float dy = y2 - y1;
         if ((dx == 0) && (dy == 0)){
             transform.position = new Vector3(x1, transform.position.y, y1);
-        }
-        else {
+        } else {
             float t = (dx * (px - x1) + dy * (py - y1)) / (dx * dx + dy * dy);
             t = Mathf.Clamp01(t);
             transform.position = new Vector3(x1 + t * dx, anchor1.transform.position.y, y1 + t * dy);
