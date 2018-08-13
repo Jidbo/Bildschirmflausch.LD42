@@ -1134,6 +1134,11 @@ Prefab:
       propertyPath: WasteNotification
       value: 
       objectReference: {fileID: 1182812891}
+    - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 1182812892}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
   m_IsPrefabAsset: 0
@@ -1238,17 +1243,17 @@ Prefab:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 224891609177587662, guid: bab26afe0936a4eda877d755e546f48b,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab26afe0936a4eda877d755e546f48b, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1182812891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1414167395011444, guid: bab26afe0936a4eda877d755e546f48b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182812890}
+--- !u!1 &1182812892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1544925521981146, guid: bab26afe0936a4eda877d755e546f48b,
     type: 2}
   m_PrefabInternal: {fileID: 1182812890}
 --- !u!1001 &1189191990

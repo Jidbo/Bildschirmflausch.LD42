@@ -11,13 +11,15 @@ public class GameController : MonoBehaviour {
     GameObject ScoreText;
     [SerializeField]
     GameObject WasteNotification;
+    [SerializeField]
+    GameObject GameOverUI;
 
     bool isDisplayed;
     float timeToDisplay;
 
     int gameScore = 0;
 
-    enum GameState {PAUSED, PLAYING};
+    enum GameState {PAUSED, PLAYING, GAMEOVER};
 
     GameState currentGameState = GameState.PLAYING;
     bool pausedPressed = false;
@@ -89,6 +91,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void updateScore(int toAdd) {
+        if (currentGameState != GameState.PLAYING) return;
         gameScore += toAdd;
         int spacePadding = 10 - gameScore.ToString().Length;
         ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + gameScore.ToString();
@@ -100,5 +103,15 @@ public class GameController : MonoBehaviour {
 
     public void flashNotification() {
         timeToDisplay = 0.3F;
+    }
+
+    public void showGameOverUI() {
+        UIController ui = GameOverUI.GetComponent<UIController>();
+        currentGameState = GameState.GAMEOVER;
+        if (ui != null) {
+            ui.showGameOver();
+        } else {
+            Debug.Log("No GameOver UI specified in Gamecontroller");
+        }
     }
 }

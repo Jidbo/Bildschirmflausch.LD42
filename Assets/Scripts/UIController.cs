@@ -21,4 +21,8 @@ public class UIController : MonoBehaviour {
             GameController.instance.GetComponent<GameController>().Play();
 		}
     }
+
+    public void showGameOver() {
+        gameObject.SetActive(true);
+    }
 }

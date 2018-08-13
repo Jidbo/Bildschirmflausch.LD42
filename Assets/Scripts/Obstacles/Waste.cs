@@ -89,6 +89,7 @@ public class Waste : MonoBehaviour {
                     c.gameObject.GetComponent<Waste>().Explode();
                 }
             }
+            GameController.instance.showGameOverUI();
         }
     }
 }
