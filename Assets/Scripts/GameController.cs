@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour {
 
     public void updateScore(int toAdd) {
         if (currentGameState != GameState.PLAYING) return;
+
         gameScore += toAdd;
         int spacePadding = 10 - gameScore.ToString().Length;
         ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + gameScore.ToString();
@@ -117,5 +118,9 @@ public class GameController : MonoBehaviour {
         } else {
             Debug.Log("No GameOver UI specified in Gamecontroller");
         }
+    }
+
+    public AudioControl GetAudio() {
+        return gameObject.GetComponent<AudioControl>();
     }
 }

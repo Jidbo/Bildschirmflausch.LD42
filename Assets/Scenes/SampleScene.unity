@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.117
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12010912, g: 0.1232261, b: 0.11422252, a: 0.117}
+  m_IndirectSpecularColor: {r: 0.12010925, g: 0.12322622, b: 0.114222534, a: 0.117}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49732ba99505ca746a5061533102df49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player: {fileID: 2038891367}
   anchor1: {fileID: 1676363125}
   anchor2: {fileID: 1688670204}
@@ -507,8 +507,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d20c78aaa12f334a9876d9bdb0ee592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   bigShelf: {fileID: 1144656223927980, guid: 1ef7cc74151a64b02b03db949fd883b2, type: 2}
   shelf: {fileID: 1030100150646362, guid: a1dd28f321bd1484f877ffe83953870a, type: 2}
   waste: {fileID: 1333369061650772, guid: 86ad99cda8d71428b9302141e546e47b, type: 2}
@@ -1018,30 +1018,40 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114976888751940006, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: soundeffects.Array.data[0]
+      value:
+      objectReference: {fileID: 1368437271}
+    - target: {fileID: 114976888751940006, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: soundeffects.Array.data[1]
+      value:
+      objectReference: {fileID: 455597101}
     - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
         type: 2}
       propertyPath: UI
-      value: 
+      value:
       objectReference: {fileID: 1360696168}
     - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
         type: 2}
       propertyPath: ScoreText
-      value: 
+      value:
       objectReference: {fileID: 348620626}
     - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
         type: 2}
       propertyPath: WasteNotification
-      value: 
+      value:
       objectReference: {fileID: 1182812891}
     - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
         type: 2}
       propertyPath: GameOverUI
-      value: 
+      value:
       objectReference: {fileID: 1182812892}
     - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
         type: 2}
       propertyPath: player
-      value: 
+      value:
       objectReference: {fileID: 2038891367}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
@@ -1210,7 +1220,7 @@ Prefab:
     - target: {fileID: 114778944196268528, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
         type: 2}
       propertyPath: toSpawn.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1943071178220950, guid: fcbc7bea590f746ecaf934dda500b984,
         type: 2}
     - target: {fileID: 114778944196268528, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
@@ -1846,17 +1856,17 @@ Prefab:
     - target: {fileID: 114136258946851986, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
         type: 2}
       propertyPath: soundeffects.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1368437271}
     - target: {fileID: 114136258946851986, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
         type: 2}
       propertyPath: soundeffects.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 455597101}
     - target: {fileID: 114136258946851986, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
         type: 2}
       propertyPath: soundeffects.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 682359752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f, type: 2}
@@ -1912,7 +1922,7 @@ Prefab:
     - target: {fileID: 114778944196268528, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
         type: 2}
       propertyPath: toSpawn.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 1333369061650772, guid: 86ad99cda8d71428b9302141e546e47b,
         type: 2}
     - target: {fileID: 4025406474450630, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}
@@ -1931,7 +1941,7 @@ Prefab:
     - target: {fileID: 23010668489641782, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: c68481cd4d5f5457ba6f13bf3c1cc612, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}

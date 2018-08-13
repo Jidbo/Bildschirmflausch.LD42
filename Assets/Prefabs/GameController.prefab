@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4759925969440598}
   - component: {fileID: 114533443089496276}
+  - component: {fileID: 114976888751940006}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -52,3 +53,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
+  ScoreText: {fileID: 0}
+  WasteNotification: {fileID: 0}
+  GameOverUI: {fileID: 0}
+--- !u!114 &114976888751940006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690597198171356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623e79bf06ec3e64c8da49b916612788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 65498f71a5c3b654e9851c691598b449, type: 2}
+  maintheme: {fileID: 0}
+  gameovers: {fileID: 0}
+  soundeffects:
+  - {fileID: 0}
+  - {fileID: 0}
