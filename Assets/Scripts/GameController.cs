@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     GameObject ScoreText;
 
     float lastTime = 0;
-    float gameScore = 0;
+    int gameScore = 0;
 
     enum GameState {PAUSED, PLAYING};
 
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour {
             pausedPressed = false;
         }
 
-        updateScore(Time.deltaTime);    
+        updateScore((int) Time.deltaTime);    
 	}
 
     public void Pause() {
@@ -69,9 +69,10 @@ public class GameController : MonoBehaviour {
         currentGameState = GameState.PLAYING;
     }
 
-    public void updateScore(float toAdd) {
+    public void updateScore(int toAdd) {
         gameScore += toAdd;
-        ScoreText.GetComponent<Text>().text = "Score: " + Mathf.Round(gameScore).ToString();
+        int spacePadding = 10 - gameScore.ToString().Length;
+        ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + gameScore.ToString();
     }
 
     public float getCurrentScore() {
