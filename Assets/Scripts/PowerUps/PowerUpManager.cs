@@ -10,8 +10,6 @@ public class PowerUpManager : MonoBehaviour {
     GameObject spawnerCopyPlank;
     [SerializeField]
     GameObject spawnerCopyCrate;
-    [SerializeField]
-    GameObject powerUp;
 
     public bool running;
     private float timeLeft;

@@ -17,6 +17,8 @@ public class Waste : MonoBehaviour {
     [SerializeField]
     GameObject explosionParticleSystem;
     bool exploded = false;
+    [SerializeField]
+    GameObject gameController;
 
     private void Start() {
         currentTimeTillBoom = maxTimeTillBoom;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.073
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08886314, g: 0.091423936, b: 0.08402688, a: 0.073}
+  m_IndirectSpecularColor: {r: 0.08886302, g: 0.09142382, b: 0.084026806, a: 0.073}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -705,7 +705,7 @@ Prefab:
     - target: {fileID: 114450014620488874, guid: c9c1b94da6d080f4c9dd528b19d4d3c3,
         type: 2}
       propertyPath: timeTillSpawning
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c1b94da6d080f4c9dd528b19d4d3c3, type: 2}
@@ -1856,7 +1856,6 @@ MonoBehaviour:
   spawnerCopyWaste: {fileID: 2069309409}
   spawnerCopyPlank: {fileID: 1189191991}
   spawnerCopyCrate: {fileID: 1533587832}
-  powerUp: {fileID: 1191809635142092, guid: 7046bb970bbcba04ea21da363eaa4719, type: 2}
   running: 0
 --- !u!4 &1885871870
 Transform:
