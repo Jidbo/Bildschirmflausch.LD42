@@ -9,7 +9,7 @@ public class StoragePlayer : Storage {
     }
 
     protected override void OnObjectAdded(GameObject go) {
-
+        go.GetComponent<Rigidbody>().detectCollisions = true;
     }
 
     protected override void OnObjectRemoved(GameObject go) {
