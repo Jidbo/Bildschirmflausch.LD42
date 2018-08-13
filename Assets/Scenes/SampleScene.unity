@@ -1850,6 +1850,16 @@ Prefab:
       propertyPath: soundeffects.Array.data[2]
       value: 
       objectReference: {fileID: 682359752}
+    - target: {fileID: 65642966105975148, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65642966105975148, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ad6b7d4959b4a60a6e265c2ee4ad6f, type: 2}
   m_IsPrefabAsset: 0
