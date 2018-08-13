@@ -24,12 +24,14 @@ public class Waste : MonoBehaviour {
 
     private void FixedUpdate() {
         if (CollidesWithWaste()) {
+            GetComponent<Animator>().SetBool("exploding", true);
             GameController.instance.flashNotification();
             currentTimeTillBoom -= Time.deltaTime;
             if (currentTimeTillBoom <= 0) {
                 Explode();
             }
         } else if (currentTimeTillBoom < maxTimeTillBoom) {
+            GetComponent<Animator>().SetBool("exploding", false);
             currentTimeTillBoom += regenerationAmount;
         }
 
@@ -38,7 +40,7 @@ public class Waste : MonoBehaviour {
     }
 
     private bool CollidesWithWaste() {
-        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(0.4f, 0.8f, 0.4f), transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position + (gameObject.transform.up * 0.45f), new Vector3(0.4f, 0.8f, 0.4f), transform.rotation);
         foreach (Collider c in colliders) {
             if(c.gameObject.CompareTag("waste") && c.gameObject != gameObject) {
                 return true;
