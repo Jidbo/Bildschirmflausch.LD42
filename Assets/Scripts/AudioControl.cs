@@ -10,7 +10,7 @@ public class AudioControl : MonoBehaviour
     public AudioSource gameovers;
     public AudioSource[] soundeffects;
 
-    public enum Sfx { idle, back, updown };
+    public enum Sfx { idle, back, updown, driving, explosion };
 
     public void GameOverBgm()
     {
