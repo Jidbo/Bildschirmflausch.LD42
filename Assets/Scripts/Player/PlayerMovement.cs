@@ -17,22 +17,24 @@ public class PlayerMovement : MonoBehaviour {
     float rotationAngle = (float) Math.PI * 0.5f;
 
     private void Update() {
-        hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
-        vSpeed = Input.GetAxis("Vertical") * movementSpeed;
-        AudioControl audioControll = GameController.instance.GetAudio();
-        if (Input.GetAxis("Vertical") < 0) {
-            if (audioControll.SfxPlaying(0)) {
-                audioControll.SfxStop(0);
-            }
-            if (!audioControll.SfxPlaying(1)) {
-                audioControll.SfxPlay(1);
-            }
-        } else {
-            if (audioControll.SfxPlaying(1)) {
-                audioControll.SfxStop(1);
-            }
-            if (!audioControll.SfxPlaying(0)) {
-                audioControll.SfxPlay(0);
+        if (controllable) {
+            hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
+            vSpeed = Input.GetAxis("Vertical") * movementSpeed;
+            AudioControl audioControll = GameController.instance.GetAudio();
+            if (Input.GetAxis("Vertical") < 0) {
+                if (audioControll.SfxPlaying(0)) {
+                    audioControll.SfxStop(0);
+                }
+                if (!audioControll.SfxPlaying(1)) {
+                    audioControll.SfxPlay(1);
+                }
+            } else {
+                if (audioControll.SfxPlaying(1)) {
+                    audioControll.SfxStop(1);
+                }
+                if (!audioControll.SfxPlaying(0)) {
+                    audioControll.SfxPlay(0);
+                }
             }
         }
     }
