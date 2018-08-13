@@ -14,6 +14,8 @@ public class Waste : MonoBehaviour {
     float explosionForce = 100;
     [SerializeField]
     float explosionRadius = 7;
+    [SerializeField]
+    GameObject explosionParticleSystem;
     bool exploded = false;
 
     private void Start() {
@@ -44,18 +46,22 @@ public class Waste : MonoBehaviour {
     private void Explode() {
         if (!exploded) {
             exploded = true;
-            Debug.Log(gameObject + "Exploded");
             Vector3 explosionPosition = gameObject.transform.position;
+            explosionParticleSystem.GetComponent<ParticleSystem>().Play(true);
+            explosionParticleSystem.transform.SetParent(null);
             Destroy(gameObject);
             Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
             foreach (Collider c in colliders) {
-                Debug.Log(c.gameObject);
                 Storage storage = c.GetComponent<Storage>();
                 if (storage != null) {
                     while (!storage.IsEmpty()) {
-                        Rigidbody itemRB = storage.TakeFromStorage().GetComponent<Rigidbody>();
-                        if (itemRB != null) {
-                            itemRB.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
+                        GameObject storageItem = storage.TakeFromStorage();
+                        Rigidbody sirb = storageItem.GetComponent<Rigidbody>();
+                        if (sirb != null) {
+                            sirb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
+                        }
+                        if (storageItem.CompareTag("waste")) {
+                            storageItem.GetComponent<Waste>().Explode();
                         }
                     }
                 }
@@ -64,7 +70,6 @@ public class Waste : MonoBehaviour {
                     cRB.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
                 }
                 if (c.gameObject.CompareTag("waste")) {
-                    Debug.Log(c.gameObject);
                     c.gameObject.GetComponent<Waste>().Explode();
                 }
             }
