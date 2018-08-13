@@ -44,6 +44,8 @@ ModelImporter:
     2100000: Material_001
     2100002: Material
     2100004: Material__ForkLiftTruck
+    2100006: unnamed
+    2100008: None__ForkLiftTruck
     4300000: LampRight
     4300002: Wheel
     4300004: EngineCompartment
