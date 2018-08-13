@@ -17,6 +17,7 @@ public abstract class Storage : MonoBehaviour {
     private void Awake() { 
         maxCapacity = positions.Count;
         content = new GameObject[maxCapacity];
+        GameController.instance.updateScore(20);
     }
 
     /// <summary>

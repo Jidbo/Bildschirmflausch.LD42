@@ -26,7 +26,8 @@ public class GameController : MonoBehaviour {
 
 	private void Start() {
         lastTime = Time.time;
-	}
+        ScoreText.GetComponent<Text>().text = "Score: 0";
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -54,6 +55,8 @@ public class GameController : MonoBehaviour {
         } else {
             pausedPressed = false;
         }
+
+        updateScore(Time.deltaTime);    
 	}
 
     public void Pause() {
@@ -68,7 +71,7 @@ public class GameController : MonoBehaviour {
 
     public void updateScore(float toAdd) {
         gameScore += toAdd;
-        ScoreText.GetComponent<Text>().text = gameScore.ToString();
+        ScoreText.GetComponent<Text>().text = "Score: " + Mathf.Round(gameScore).ToString();
     }
 
     public float getCurrentScore() {
