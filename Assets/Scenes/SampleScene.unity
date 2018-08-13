@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 348620629}
   - component: {fileID: 348620628}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,6 +1014,11 @@ Prefab:
       propertyPath: UI
       value: 
       objectReference: {fileID: 1360696168}
+    - target: {fileID: 114533443089496276, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 348620626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
   m_IsPrefabAsset: 0
