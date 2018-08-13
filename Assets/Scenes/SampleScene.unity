@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.073
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08886302, g: 0.09142382, b: 0.084026806, a: 0.073}
+  m_IndirectSpecularColor: {r: 0.08886314, g: 0.091423936, b: 0.08402688, a: 0.073}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,7 +282,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4143279102876266, guid: a4a2b432bdc00214dbfeb8c4b1aa366f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.33
+      value: -11.482
       objectReference: {fileID: 0}
     - target: {fileID: 4143279102876266, guid: a4a2b432bdc00214dbfeb8c4b1aa366f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1373,6 +1373,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23989427039659598, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa0bcc5533d2bb644a4d6cca5513dada, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}
   m_IsPrefabAsset: 0
@@ -1608,6 +1613,11 @@ Prefab:
       propertyPath: m_Name
       value: Ramp (crates)
       objectReference: {fileID: 0}
+    - target: {fileID: 23989427039659598, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa0bcc5533d2bb644a4d6cca5513dada, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}
   m_IsPrefabAsset: 0
@@ -1991,6 +2001,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c68481cd4d5f5457ba6f13bf3c1cc612, type: 2}
+    - target: {fileID: 23989427039659598, guid: 61dd0e96d03568d4bbf1f7ec29cc7002,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa0bcc5533d2bb644a4d6cca5513dada, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61dd0e96d03568d4bbf1f7ec29cc7002, type: 2}
   m_IsPrefabAsset: 0
