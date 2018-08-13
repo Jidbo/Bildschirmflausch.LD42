@@ -20,7 +20,12 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         if (controllable) {
             hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
-            vSpeed = Input.GetAxis("Vertical") * movementSpeed;
+            if (Input.GetAxis("Vertical") >= 0) {
+                vSpeed = Input.GetAxis("Vertical") * movementSpeed;
+            } else {
+                vSpeed = Input.GetAxis("Vertical") * movementSpeed * 0.5f;
+            }
+           
             try {
                 AudioControl audioControl = GameController.instance.GetAudio();
                 if (Input.GetAxis("Vertical") < 0) {
