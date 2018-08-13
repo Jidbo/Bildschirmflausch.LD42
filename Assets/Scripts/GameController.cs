@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour {
     }
 
 	private void Start() {
+        Time.timeScale = 1;
         lastTime = Time.time;
         ScoreText.GetComponent<Text>().text = "Score: 0";
     }
