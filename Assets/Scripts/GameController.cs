@@ -9,8 +9,12 @@ public class GameController : MonoBehaviour {
     GameObject UI;
     [SerializeField]
     GameObject ScoreText;
+    [SerializeField]
+    GameObject WasteNotification;
 
-    float lastTime = 0;
+    bool isDisplayed;
+    float timeToDisplay;
+
     int gameScore = 0;
 
     enum GameState {PAUSED, PLAYING};
@@ -26,8 +30,9 @@ public class GameController : MonoBehaviour {
 
 	private void Start() {
         Time.timeScale = 1;
-        lastTime = Time.time;
         ScoreText.GetComponent<Text>().text = "Score: 0";
+        isDisplayed = false;
+        WasteNotification.SetActive(false);
     }
 
 	// Update is called once per frame
@@ -41,7 +46,6 @@ public class GameController : MonoBehaviour {
                 } else {
                     Debug.Log("Cant find UI controller");
                 }
-
             } else if (currentGameState == GameState.PAUSED && !pausedPressed) {
                 
                 UIController controller = UI.GetComponent<UIController>();
@@ -57,7 +61,21 @@ public class GameController : MonoBehaviour {
             pausedPressed = false;
         }
 
-        updateScore((int) Time.deltaTime);    
+        if (timeToDisplay > 0F) {
+            timeToDisplay -= Time.deltaTime;
+            if (!isDisplayed) {
+                isDisplayed = true;
+                WasteNotification.SetActive(true);
+            }
+            WasteNotification.transform.Rotate(0, 10, 0);
+        } else {
+            if (isDisplayed) {
+                isDisplayed = false;
+                WasteNotification.SetActive(false);
+            }
+        }
+
+        updateScore((int) Time.deltaTime);
 	}
 
     public void Pause() {
@@ -78,5 +96,9 @@ public class GameController : MonoBehaviour {
 
     public float getCurrentScore() {
         return gameScore;
+    }
+
+    public void flashNotification() {
+        timeToDisplay = 0.3F;
     }
 }

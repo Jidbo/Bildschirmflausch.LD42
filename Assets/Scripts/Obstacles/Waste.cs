@@ -24,6 +24,7 @@ public class Waste : MonoBehaviour {
 
     private void FixedUpdate() {
         if (CollidesWithWaste()) {
+            GameController.instance.flashNotification();
             currentTimeTillBoom -= Time.deltaTime;
             if (currentTimeTillBoom <= 0) {
                 Explode();
