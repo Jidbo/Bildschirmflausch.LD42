@@ -86,8 +86,8 @@ public class Player : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             UseAction();
-            Animator playerAnimator = GetComponent<Animator>();
-            playerAnimator.SetBool("isLiftUp", (playerStorage.IsFull() ? true : false));
         }
+        Animator playerAnimator = GetComponent<Animator>();
+        playerAnimator.SetBool("isLiftUp", (playerStorage.IsFull() ? true : false));
     }
 }
