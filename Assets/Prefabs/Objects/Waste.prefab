@@ -156,3 +156,5 @@ MonoBehaviour:
   maxTimeTillBoom: 5
   regenerationAmount: 0
   currentTimeTillBoom: 0
+  explosionForce: 1000
+  explosionRadius: 7
