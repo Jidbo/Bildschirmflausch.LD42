@@ -234,12 +234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a5d28da691842ed8ca861e299bbda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeTillBoom: 5
-  regenerationAmount: 0
-  currentTimeTillBoom: 0
+  maxTimeTillBoom: 10
+  regenerationAmount: 0.02
   explosionForce: 1000
   explosionRadius: 7
   explosionParticleSystem: {fileID: 1065994740441082}
+  gameController: {fileID: 0}
 --- !u!198 &198224302727108764
 ParticleSystem:
   m_ObjectHideFlags: 1

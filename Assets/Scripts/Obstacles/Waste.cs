@@ -8,8 +8,7 @@ public class Waste : MonoBehaviour {
     float maxTimeTillBoom;
     [SerializeField]
     float regenerationAmount;
-    [SerializeField]
-    float currentTimeTillBoom;
+    private float currentTimeTillBoom;
     [SerializeField]
     float explosionForce = 100;
     [SerializeField]

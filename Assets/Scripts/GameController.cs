@@ -59,7 +59,6 @@ public class GameController : MonoBehaviour {
                         Debug.Log("Cant find UI controller");
                     }
                 } else if (currentGameState == GameState.PAUSED && !pausedPressed) {
-
                     UIController controller = UI.GetComponent<UIController>();
                     if (controller != null) {
                         controller.showUI(false);

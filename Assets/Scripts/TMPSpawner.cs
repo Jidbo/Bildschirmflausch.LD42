@@ -5,8 +5,7 @@ using UnityEngine;
 public class TMPSpawner : MonoBehaviour {
     [SerializeField]
     public float cooldown = 2.5f;
-    [SerializeField]
-    public float timeTillSpawning;
+    private float timeTillSpawning;
     [SerializeField]
     public List<GameObject> toSpawn;
     [SerializeField]
@@ -15,6 +14,7 @@ public class TMPSpawner : MonoBehaviour {
     System.Random rnd;
 
     void Start() {
+        timeTillSpawning = cooldown / 3;
         rnd = new System.Random();
     }
 
