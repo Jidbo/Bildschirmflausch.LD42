@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         if (controllable) {
-            rotationAngle = (rotationAngle + (backRotationToggle ? (vSpeed >= 0 ? -1 : 1) : 1) * hSpeed);
+            rotationAngle = (rotationAngle + (backRotationToggle ? (vSpeed >= 0 ? -1 : 1) : -1) * hSpeed);
             while (rotationAngle < -Math.PI)
                 rotationAngle += 2 * (float)Math.PI;
             while (rotationAngle > Math.PI)
