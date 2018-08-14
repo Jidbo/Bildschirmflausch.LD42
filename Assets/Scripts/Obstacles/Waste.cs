@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,12 @@ public class Waste : MonoBehaviour {
     private void FixedUpdate() {
         if (CollidesWithWaste()) {
             GetComponent<Animator>().SetBool("exploding", true);
-            GameController.instance.flashNotification();
+            try {
+                GameController.instance.flashNotification();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
             currentTimeTillBoom -= Time.deltaTime;
             if (currentTimeTillBoom <= 0) {
                 Explode();
@@ -77,7 +83,12 @@ public class Waste : MonoBehaviour {
                     c.gameObject.GetComponent<Waste>().Explode();
                 }
             }
-            GameController.instance.showGameOverUI();
+            try {
+                GameController.instance.showGameOverUI();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
         }
     }
 }

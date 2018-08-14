@@ -27,7 +27,7 @@ public class StoragePallet : Storage {
                 GameController.instance.updateScore(20);
             }
             catch (Exception e) {
-
+                Debug.Log(e);
             }
             Destroy(gameObject);
         }

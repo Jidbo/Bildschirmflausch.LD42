@@ -31,7 +31,7 @@ public class StorageShelf : Storage {
                     GameController.instance.updateScore(50);
                 }
                 catch (Exception e) {
-
+                    Debug.Log(e);
                 }
                 Destroy(gameObject);
             }
