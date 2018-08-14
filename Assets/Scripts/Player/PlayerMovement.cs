@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     float movementSpeed = 10;
 
+    bool backRotationToggle = true;
+
     float hSpeed;
     float vSpeed;
 
@@ -19,6 +21,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (controllable) {
+            if (Input.GetKeyDown(KeyCode.T)) {
+                backRotationToggle = !backRotationToggle;
+            }
             hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
             if (Input.GetAxis("Vertical") >= 0) {
                 vSpeed = Input.GetAxis("Vertical") * movementSpeed;
@@ -52,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         if (controllable) {
-            rotationAngle = (rotationAngle + (vSpeed >= 0 ? -1 : 1) * hSpeed);
+            rotationAngle = (rotationAngle + (backRotationToggle ? (vSpeed >= 0 ? -1 : 1) : 1) * hSpeed);
             while (rotationAngle < -Math.PI)
                 rotationAngle += 2 * (float)Math.PI;
             while (rotationAngle > Math.PI)
