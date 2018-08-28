@@ -83,10 +83,11 @@ GameObject:
   - component: {fileID: 4914366124716944}
   - component: {fileID: 65954425484191338}
   - component: {fileID: 54337947114795714}
+  - component: {fileID: 114757785409239522}
   - component: {fileID: 114312199025748794}
   m_Layer: 14
   m_Name: Pallet
-  m_TagString: pallet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,14 +238,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943071178220950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c891bc2e0ca364f9b8b4c5ef8aa78f68, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: []
+  minSize: {x: 0, y: 0, z: 0}
+  maxSize: {x: 0.5, y: 0.9, z: 1}
   positions:
   - {fileID: 4515055890318576}
   - {fileID: 4286271046180666}
-  currentAmount: 0
-  shelf: {fileID: 1030100150646362, guid: a1dd28f321bd1484f877ffe83953870a, type: 2}
-  palletStack: {fileID: 1984449093501670, guid: da5e2d2e52a525748b7ae869cb50a404,
-    type: 2}
+--- !u!114 &114757785409239522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943071178220950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3dbaf66b19aa34096e0731d821cd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 2, y: 0.1, z: 1}

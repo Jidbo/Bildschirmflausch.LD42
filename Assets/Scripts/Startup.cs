@@ -24,7 +24,7 @@ public class Startup : MonoBehaviour {
         GameObject newBigShelf03 = Instantiate(bigShelf);
         newBigShelf03.transform.position = new Vector3((long)-6.767082, (long)0.003471136, (long)0.7262506);
         newBigShelf03.transform.Rotate(0, (float)-59.176, 0);
-        newBigShelf03.GetComponent<StorageBigShelf>().AddToStorage(Instantiate(waste));
-        newBigShelf03.GetComponent<StorageBigShelf>().AddToStorage(Instantiate(waste));
+        newBigShelf03.GetComponent<Storage>().Add(Instantiate(waste));
+        newBigShelf03.GetComponent<Storage>().Add(Instantiate(waste));
     }
 }

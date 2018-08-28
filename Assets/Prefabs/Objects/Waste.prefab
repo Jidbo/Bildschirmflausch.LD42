@@ -39,10 +39,12 @@ GameObject:
   - component: {fileID: 65038761769597834}
   - component: {fileID: 54241868808982372}
   - component: {fileID: 114724945623010708}
+  - component: {fileID: 114667607902391042}
+  - component: {fileID: 114172552965238692}
   - component: {fileID: 95849003657336840}
   m_Layer: 14
   m_Name: Waste
-  m_TagString: waste
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +225,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114172552965238692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333369061650772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e97e8df26987a34b9792bbf57087fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTimeTillBoom: 10
+  regenerationAmount: 0.1
+  explosionForce: 100
+  explosionRadius: 7
+  explosionParticleSystem: {fileID: 1065994740441082}
+--- !u!114 &114667607902391042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333369061650772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3dbaf66b19aa34096e0731d821cd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 0.5, y: 0.9, z: 0.5}
 --- !u!114 &114724945623010708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,12 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a5d28da691842ed8ca861e299bbda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeTillBoom: 10
-  regenerationAmount: 0.02
-  explosionForce: 1000
-  explosionRadius: 7
-  explosionParticleSystem: {fileID: 1065994740441082}
-  gameController: {fileID: 0}
 --- !u!198 &198224302727108764
 ParticleSystem:
   m_ObjectHideFlags: 1

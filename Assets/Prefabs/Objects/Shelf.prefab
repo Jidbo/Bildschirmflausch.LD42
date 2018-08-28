@@ -23,10 +23,11 @@ GameObject:
   - component: {fileID: 65155829790330238}
   - component: {fileID: 65159166235202742}
   - component: {fileID: 54400310040469796}
+  - component: {fileID: 114199588956135018}
   - component: {fileID: 114328910875761406}
   m_Layer: 14
   m_Name: Shelf
-  m_TagString: shelf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,6 +489,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 1}
   m_Center: {x: 0.75, y: 0.5, z: 0}
+--- !u!114 &114199588956135018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030100150646362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3dbaf66b19aa34096e0731d821cd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 2, y: 1, z: 1}
 --- !u!114 &114328910875761406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,14 +509,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030100150646362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c47b2bb333e403d8113c43c62a3ca7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: []
+  minSize: {x: 0, y: 0, z: 0}
+  maxSize: {x: 0.5, y: 0.9, z: 1}
   positions:
   - {fileID: 4355188968435526}
   - {fileID: 4903562512861862}
   - {fileID: 4078959143256646}
   - {fileID: 4782452491470374}
-  currentAmount: 0
-  bigShelf: {fileID: 1144656223927980, guid: 1ef7cc74151a64b02b03db949fd883b2, type: 2}

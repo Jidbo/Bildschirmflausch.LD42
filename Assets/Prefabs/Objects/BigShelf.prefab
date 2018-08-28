@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 54458663499514998}
   m_Layer: 14
   m_Name: BigShelf
-  m_TagString: bigshelf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,9 +786,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1144656223927980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc29825eaf1724c788f07aa38a2ee65e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSize: {x: 0, y: 0, z: 0}
+  maxSize: {x: 0.5, y: 0.9, z: 1}
   content: []
   positions:
   - {fileID: 4115865315691034}
@@ -797,4 +799,3 @@ MonoBehaviour:
   - {fileID: 4923802028797574}
   - {fileID: 4070111785555222}
   - {fileID: 4639524087957638}
-  currentAmount: 0

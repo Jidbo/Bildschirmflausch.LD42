@@ -3,65 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    StoragePlayer playerStorage;
+    Storage playerStorage;
     [SerializeField]
     GameObject spaceCheck;
     [SerializeField]
     LayerMask obstacleLayerMask;
 
     void Start() {
-        playerStorage = GetComponent<StoragePlayer>();
+        playerStorage = GetComponent<Storage>();
     }
 
     private void UseAction() {
-        //gets all objects in front of the player
+        //gets all colliders
         Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1.5f, 1.5f, 0.75f), transform.rotation, obstacleLayerMask);
+        //checker if there is space in front of the player
         bool isSpaceInFront = true;
-
+        //the Item the player currently holds
+        GameObject playerItem = playerStorage.Remove();
         //runs through all colliders
         foreach (Collider c in colliders) {
-            if (c.gameObject.layer == 12) {
-                isSpaceInFront = false;
-            }
-            if (c.gameObject.transform.parent == null) {
-                isSpaceInFront = false;
-                //tries to get the collider's Storage component and saves it in colliderStorage
-                Storage colliderStorage = c.gameObject.GetComponent<Storage>();
-
-                //checks if the collider has a Storage attached
-                if (colliderStorage != null) {
-                    //checks if the player is holding an item
-                    if (playerStorage.IsFull()) {
-                        //takes the item from the player 
-                        GameObject obj = playerStorage.TakeFromStorage();
-                        //tries to insert the item into the object's storage
-                        if (colliderStorage.AddToStorage(obj)) {
+            //there is no space when there is a collider on front
+            isSpaceInFront = false;
+            //the Storage of the collider
+            Storage colliderStorage = c.gameObject.GetComponent<Storage>();
+            //when the collider has a Storage component
+            if (colliderStorage != null) {
+                //when the player holds an Item
+                if (playerItem != null) {
+                    //tries to add the held item to the collider-Storage
+                    if (colliderStorage.Add(playerItem)) {
+                        return;
+                    }
+                }
+                //when the player doesn't hold an Item
+                else {
+                    //takes an Item from the colliderStorage
+                    GameObject obj = colliderStorage.Remove();
+                    //when there is no takeable item
+                    if (obj == null) {
+                        //tries to add the collider to the playerstorage
+                        if (playerStorage.Add(c.gameObject)) {
                             return;
-                        } else {
-                            //returns the item to the player, if storing failed
-                            playerStorage.AddToStorage(obj);
-                        }
-                    } else {
-                        GameObject obj = colliderStorage.TakeFromStorage();
-                        if (obj == null) {
-                            playerStorage.AddToStorage(c.gameObject);
-                            return;
-                        } else {
-                            if (playerStorage.AddToStorage(obj)) {
-                                return;
-                            } else {
-                                colliderStorage.AddToStorage(obj);
-                            }
                         }
                     }
-                } else if (playerStorage.AddToStorage(c.gameObject)) {
-                    return;
+                    //when there is an item
+                    else {
+                        //tries to add the item to the playerstorage
+                        if (playerStorage.Add(obj)) {
+                            return;
+                        }
+                        //returns the item to the colliderstorage
+                        else {
+                            colliderStorage.Add(obj);
+                        }
+                    }
                 }
             }
+            //tries to add the collider to the playerstorage
+            else if (playerItem == null && playerStorage.Add(c.gameObject)) {
+                return;
+            }
         }
-        //tries to drop the current Item
-        if (isSpaceInFront) {
-            playerStorage.TakeFromStorage();
+        //adds the currently held item back to the playerStorage when no space is found
+        if (playerItem != null && !isSpaceInFront) {
+            playerStorage.Add(playerItem);
         }
     }
 
@@ -69,7 +74,6 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) {
             UseAction();
         }
-        Animator playerAnimator = GetComponent<Animator>();
-        playerAnimator.SetBool("isLiftUp", (playerStorage.IsFull() ? true : false));
+        GetComponent<Animator>().SetBool("isLiftUp", playerStorage.IsFull());
     }
 }

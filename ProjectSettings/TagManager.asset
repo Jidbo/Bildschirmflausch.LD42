@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - crate
-  - shelf
-  - bigshelf
-  - pallet
-  - waste
-  - PauseUI
-  - palletstack
+  tags: []
   layers:
   - Default
   - TransparentFX

@@ -648,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 2.3
   movementSpeed: 10
+  rotationAngle: 1.5707964
 --- !u!114 &114491648166157604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -671,13 +672,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999987134424988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c4803a93fa0418a8b57fc037d0ebea, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: []
+  minSize: {x: 0, y: 0, z: 0}
+  maxSize: {x: 2, y: 1, z: 1}
   positions:
   - {fileID: 4705254305364426}
-  currentAmount: 0
 --- !u!137 &137517042804675206
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

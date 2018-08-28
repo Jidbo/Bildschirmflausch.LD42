@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 114779364347154048}
   m_Layer: 14
   m_Name: PalletStack
-  m_TagString: palletstack
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,10 +353,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984449093501670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 661a768629ee08240ac031e90982a691, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: []
+  minSize: {x: 0, y: 0.1, z: 0}
+  maxSize: {x: 2, y: 0.1, z: 1}
   positions:
   - {fileID: 4470392974086470}
   - {fileID: 4736981074136042}
@@ -364,5 +365,3 @@ MonoBehaviour:
   - {fileID: 4789002531327296}
   - {fileID: 4753987002347628}
   - {fileID: 4779933026588580}
-  currentAmount: 0
-  pallet: {fileID: 1943071178220950, guid: fcbc7bea590f746ecaf934dda500b984, type: 2}
