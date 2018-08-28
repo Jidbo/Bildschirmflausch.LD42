@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 [CreateAssetMenu]
 public class Recipe : ScriptableObject {
@@ -8,6 +9,8 @@ public class Recipe : ScriptableObject {
     private List<GameObject> ingredients;
     [SerializeField]
     private GameObject result;
+    [SerializeField]
+    private int scoreForCrafting;
 
     public bool TryCraft(GameObject parent, List<GameObject> contents) {
         //Solution is not very good...
@@ -23,6 +26,11 @@ public class Recipe : ScriptableObject {
         newGO.transform.position = parent.transform.position;
         newGO.transform.rotation = parent.transform.rotation;
         Destroy(parent);
+        try {
+            GameController.instance.updateScore(scoreForCrafting);
+        } catch(Exception e) {
+            Debug.Log(e);
+        }
     }
 
     private string CreateTagString(List<GameObject> objects) {

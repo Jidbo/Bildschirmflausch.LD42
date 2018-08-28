@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Storage : MonoBehaviour {
-
+    [SerializeField]
+    int scoreForFilling;
     [SerializeField]
     Vector3 minSize;
     [SerializeField]
@@ -11,6 +13,8 @@ public class Storage : MonoBehaviour {
     protected GameObject[] contents;
     [SerializeField]
     protected List<Transform> positions;
+
+    bool wasFilled = false;
 
     private void Awake() {
         GameObject[] oldContent = contents;
@@ -60,7 +64,14 @@ public class Storage : MonoBehaviour {
     /// </summary>
     /// <param name="go">The object which should be added.</param>
     protected virtual void OnObjectAdded(GameObject go) {
-
+        if (!wasFilled && IsFull()) {
+            wasFilled = true;
+            try {
+                GameController.instance.updateScore(scoreForFilling);
+            } catch(Exception e) {
+                Debug.Log(e);
+            }
+        }
     }
 
     /// <summary>

@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreForFilling: 70
   minSize: {x: 0, y: 0, z: 0}
   maxSize: {x: 0.5, y: 0.9, z: 1}
   positions:

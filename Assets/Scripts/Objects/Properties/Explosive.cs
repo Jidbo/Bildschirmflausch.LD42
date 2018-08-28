@@ -6,7 +6,6 @@ using UnityEngine;
 public class Explosive : MonoBehaviour {
     [SerializeField]
     float health = 10;
-    [SerializeField]
     private float currentHealth;
     [SerializeField]
     float regenerationAmount = 0.01f;

@@ -14,3 +14,4 @@ MonoBehaviour:
   ingredients:
   - {fileID: 1030100150646362, guid: a1dd28f321bd1484f877ffe83953870a, type: 2}
   result: {fileID: 1144656223927980, guid: 1ef7cc74151a64b02b03db949fd883b2, type: 2}
+  scoreForCrafting: 50
