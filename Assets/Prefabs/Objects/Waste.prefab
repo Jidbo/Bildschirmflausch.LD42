@@ -236,8 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e97e8df26987a34b9792bbf57087fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeTillBoom: 10
+  health: 10
+  currentHealth: 0
   regenerationAmount: 0.1
+  poisonCoolDown: 0.5
   explosionForce: 100
   explosionRadius: 7
   explosionParticleSystem: {fileID: 1065994740441082}
@@ -264,6 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a5d28da691842ed8ca861e299bbda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poisoningRadius: 1
+  poisoningStrength: 3
+  sourceOffset: {x: 0, y: 0.45, z: 0}
 --- !u!198 &198224302727108764
 ParticleSystem:
   m_ObjectHideFlags: 1

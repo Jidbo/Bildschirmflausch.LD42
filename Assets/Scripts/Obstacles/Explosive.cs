@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosive : MonoBehaviour {
-
     [SerializeField]
-    float maxTimeTillBoom;
+    float health = 10;
     [SerializeField]
-    float regenerationAmount;
-    private float currentTimeTillBoom;
+    private float currentHealth;
+    [SerializeField]
+    float regenerationAmount = 0.01f;
+    [SerializeField]
+    float poisonCoolDown = 0.5f;
+    float currentPoisonCoolDown;
     [SerializeField]
     float explosionForce = 100;
     [SerializeField]
@@ -17,27 +20,43 @@ public class Explosive : MonoBehaviour {
     [SerializeField]
     GameObject explosionParticleSystem;
     Animator animator;
+    bool poisoned;
 
     bool exploded = false;
 
     private void Start() {
-        currentTimeTillBoom = maxTimeTillBoom;
+        currentHealth = health;
+        currentPoisonCoolDown = poisonCoolDown;
         animator = GetComponent<Animator>();
     }
 
-
-    private bool CollidesWithWaste() {
-        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position + (gameObject.transform.up * 0.45f), new Vector3(0.4f, 0.8f, 0.4f), transform.rotation);
-        foreach (Collider c in colliders) {
-            if (c.gameObject.GetComponent<Waste>() != null && c.gameObject != gameObject) {
-                return true;
-            }
-        }
-        return false;
+    public void AddPoisoning(float amount) {
+        poisoned = true;
+        currentPoisonCoolDown = poisonCoolDown;
+        currentHealth -= amount;
     }
 
     private void FixedUpdate() {
-        if (CollidesWithWaste()) {
+        if (currentHealth <= 0) {
+            Explode();
+        }
+        if (currentPoisonCoolDown > 0) {
+            currentPoisonCoolDown -= Time.deltaTime;
+        }
+        if (currentPoisonCoolDown <= 0) {
+            poisoned = false;
+            if (animator != null) {
+                animator.SetBool("exploding", false);
+            }
+            if (currentHealth <= health) {
+                currentHealth += regenerationAmount;
+                if (currentHealth > health) {
+                    currentHealth = health;
+                }
+            }
+        }
+        else if (poisoned) {
+            
             if (animator != null) {
                 animator.SetBool("exploding", true);
             }
@@ -47,15 +66,6 @@ public class Explosive : MonoBehaviour {
             catch (Exception e) {
                 Debug.Log(e);
             }
-            currentTimeTillBoom -= Time.deltaTime;
-            if (currentTimeTillBoom <= 0) {
-                Explode();
-            }
-        } else if (currentTimeTillBoom < maxTimeTillBoom) {
-            if (animator != null) {
-                animator.SetBool("exploding", false);
-            }
-            currentTimeTillBoom += regenerationAmount;
         }
     }
 
