@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719eae932ded7d6448f10ead85b7f2e0, type: 3}
+  m_Name: Shelf
+  m_EditorClassIdentifier: 
+  ingredients:
+  - {fileID: 1988164223302370, guid: 30c5b4c73dbe44230bd33d2771b3e871, type: 2}
+  - {fileID: 1988164223302370, guid: 30c5b4c73dbe44230bd33d2771b3e871, type: 2}
+  result: {fileID: 1030100150646362, guid: a1dd28f321bd1484f877ffe83953870a, type: 2}

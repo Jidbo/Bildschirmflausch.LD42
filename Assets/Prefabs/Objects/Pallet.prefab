@@ -494,6 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ce1f570337b4f4eaa8c5d259b451f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipes:
+  - {fileID: 11400000, guid: 85fd2a66bd7d07144993d22c9958075f, type: 2}
   storages:
   - {fileID: 114312199025748794}
   - {fileID: 114206753041373164}

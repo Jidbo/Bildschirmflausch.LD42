@@ -8,16 +8,16 @@ public class Storage : MonoBehaviour {
     Vector3 minSize;
     [SerializeField]
     Vector3 maxSize;
-    protected GameObject[] content;
+    protected GameObject[] contents;
     [SerializeField]
     protected List<Transform> positions;
 
     private void Awake() {
-        GameObject[] oldContent = content;
-        content = new GameObject[positions.Count];
+        GameObject[] oldContent = contents;
+        contents = new GameObject[positions.Count];
         if (oldContent != null) {
-            for (int i = 0; i < oldContent.Length && i < content.Length; i++) {
-                content[i] = oldContent[i];
+            for (int i = 0; i < oldContent.Length && i < contents.Length; i++) {
+                contents[i] = oldContent[i];
             }
         }
     }
@@ -38,8 +38,8 @@ public class Storage : MonoBehaviour {
     }
 
     private int GetPositionToAddTo() {
-        for(int i = 0; i < content.Length; i++) {
-            if(content[i] == null) {
+        for(int i = 0; i < contents.Length; i++) {
+            if(contents[i] == null) {
                 return i;
             }
         }
@@ -47,8 +47,8 @@ public class Storage : MonoBehaviour {
     }
 
     private int GetPositionToTakeFrom() {
-        for (int i = content.Length - 1; i >= 0; i--) {
-            if (content[i] != null) {
+        for (int i = contents.Length - 1; i >= 0; i--) {
+            if (contents[i] != null) {
                 return i;
             }
         }
@@ -96,7 +96,7 @@ public class Storage : MonoBehaviour {
     }
 
     private void addToStorage(int pos, GameObject newGO) {
-        content[pos] = newGO;
+        contents[pos] = newGO;
         newGO.transform.parent = positions[pos];
         newGO.transform.localPosition = Vector3.zero;
         newGO.transform.localRotation = new Quaternion();
@@ -108,9 +108,9 @@ public class Storage : MonoBehaviour {
     }
 
     private GameObject removeFromStorage(int pos) {
-        GameObject lastItem = content[pos];
+        GameObject lastItem = contents[pos];
         if (lastItem != null) {
-            content[pos] = null;
+            contents[pos] = null;
             lastItem.transform.parent = null;
             Rigidbody rb = lastItem.GetComponent<Rigidbody>();
             rb.isKinematic = false;
@@ -124,7 +124,7 @@ public class Storage : MonoBehaviour {
 
     public List<GameObject> RemoveAllContents() {
         List<GameObject> objects = new List<GameObject>();
-        for (int i = 0; i < content.Length; i++) {
+        for (int i = 0; i < contents.Length; i++) {
             GameObject obj = removeFromStorage(i);
             if(obj != null) {
                 objects.Add(obj);
@@ -134,18 +134,30 @@ public class Storage : MonoBehaviour {
     }
 
     public bool IsEmpty() {
-        foreach (GameObject go in content) {
-            if (go != null)
+        foreach (GameObject go in contents) {
+            if (go != null) {
                 return false;
+            }
         }
         return true;
     }
 
     public bool IsFull() {
-        foreach(GameObject go in content) {
-            if (go == null)
+        foreach(GameObject go in contents) {
+            if (go == null) {
                 return false;
+            }
         }
         return true;
+    }
+
+    public List<GameObject> GetAllContents() {
+        List<GameObject> allContents = new List<GameObject>();
+        foreach(GameObject content in contents) {
+            if (content != null) {
+                allContents.Add(content);
+            }
+        }
+        return allContents;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StorageSystem : MonoBehaviour {
     enum EnumStorageType { EXCLUDING, ADDITIVE };
+
+    [SerializeField]
+    private List<Recipe> recipes;
     [SerializeField]
     List<Storage> storages;
     [SerializeField]
@@ -11,7 +14,10 @@ public class StorageSystem : MonoBehaviour {
 
     public bool Add(GameObject obj) {
         if (IsStanding()) {
-            if(type == EnumStorageType.ADDITIVE || IsEmpty()) {
+            if (CraftWith(obj)) {
+                return true;
+            }
+            if (type == EnumStorageType.ADDITIVE || IsEmpty()) {
                 foreach (Storage storage in storages) {
                     if (storage.Add(obj)) {
                         return true;
@@ -28,6 +34,26 @@ public class StorageSystem : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private bool CraftWith(GameObject obj) {
+        List<GameObject> allContents = GetAllContents();
+        allContents.Add(obj);
+        foreach(Recipe recipe in recipes) {
+            if(recipe.TryCraft(gameObject, allContents)) {
+                Destroy(obj);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List<GameObject> GetAllContents() {
+        List<GameObject> contents = new List<GameObject>();
+        foreach (Storage storage in storages) {
+            contents.AddRange(storage.GetAllContents());
+        }
+        return contents;
     }
 
     public GameObject Remove() {
