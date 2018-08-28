@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    Storage playerStorage;
+    StorageSystem playerStorage;
     [SerializeField]
     GameObject spaceCheck;
     [SerializeField]
     LayerMask obstacleLayerMask;
 
     void Start() {
-        playerStorage = GetComponent<Storage>();
+        playerStorage = GetComponent<StorageSystem>();
     }
 
     private void UseAction() {
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
             //there is no space when there is a collider on front
             isSpaceInFront = false;
             //the Storage of the collider
-            Storage colliderStorage = c.gameObject.GetComponent<Storage>();
+            StorageSystem colliderStorage = c.gameObject.GetComponent<StorageSystem>();
             //when the collider has a Storage component
             if (colliderStorage != null) {
                 //when the player holds an Item

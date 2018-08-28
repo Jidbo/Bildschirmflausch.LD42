@@ -38,11 +38,12 @@ GameObject:
   - component: {fileID: 65304791745726186}
   - component: {fileID: 65587342280364542}
   - component: {fileID: 65759907901022840}
+  - component: {fileID: 114416793376599652}
   - component: {fileID: 114560567616144438}
   - component: {fileID: 54458663499514998}
   m_Layer: 14
   m_Name: BigShelf
-  m_TagString: Untagged
+  m_TagString: BigShelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,6 +779,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.1, z: 1}
   m_Center: {x: 0, y: 1.95, z: 0}
+--- !u!114 &114416793376599652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144656223927980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce1f570337b4f4eaa8c5d259b451f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storages:
+  - {fileID: 114560567616144438}
+  type: 0
 --- !u!114 &114560567616144438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,7 +806,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSize: {x: 0, y: 0, z: 0}
   maxSize: {x: 0.5, y: 0.9, z: 1}
-  content: []
   positions:
   - {fileID: 4115865315691034}
   - {fileID: 4180141720191668}

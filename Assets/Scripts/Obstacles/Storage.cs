@@ -29,7 +29,7 @@ public class Storage : MonoBehaviour {
     /// <returns>Returns true, if the object is storable</returns>
     public bool Add(GameObject newGO) {
         int pos = GetPositionToAddTo();
-        if (CanStore(newGO) && IsStanding() && pos >= 0) {
+        if (CanStore(newGO) && pos >= 0) {
             addToStorage(pos, newGO);
             return true;
 		} else {
@@ -47,7 +47,7 @@ public class Storage : MonoBehaviour {
     }
 
     private int GetPositionToTakeFrom() {
-        for (int i = 0; i < content.Length; i++) {
+        for (int i = content.Length - 1; i >= 0; i--) {
             if (content[i] != null) {
                 return i;
             }
@@ -95,10 +95,6 @@ public class Storage : MonoBehaviour {
 
     }
 
-    public bool IsStanding() {
-        return transform.up.y >= 0.9;
-    }
-
     private void addToStorage(int pos, GameObject newGO) {
         content[pos] = newGO;
         newGO.transform.parent = positions[pos];
@@ -135,12 +131,6 @@ public class Storage : MonoBehaviour {
             }
         }
         return objects;
-    }
-
-    private void FixedUpdate() {
-        if (!IsStanding()) {
-            RemoveAllContents();
-        }
     }
 
     public bool IsEmpty() {
