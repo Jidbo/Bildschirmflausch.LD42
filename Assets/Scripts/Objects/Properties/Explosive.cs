@@ -17,7 +17,7 @@ public class Explosive : MonoBehaviour {
     [SerializeField]
     float explosionRadius = 7;
     [SerializeField]
-    GameObject explosionParticleSystem;
+    GameObject explosion;
     Animator animator;
     bool poisoned;
 
@@ -72,41 +72,12 @@ public class Explosive : MonoBehaviour {
         if (!exploded) {
             exploded = true;
             Vector3 explosionPosition = gameObject.transform.position;
-            if (explosionParticleSystem != null) {
-                explosionParticleSystem.GetComponent<ParticleSystem>().Play(true);
-                explosionParticleSystem.transform.SetParent(null);
-            }
             Destroy(gameObject);
-            Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
-            foreach (Collider c in colliders) {
-                Storage storage = c.GetComponent<Storage>();
-                if (storage != null) {
-                    while (!storage.IsEmpty()) {
-                        GameObject storageItem = storage.Remove();
-                        Rigidbody sirb = storageItem.GetComponent<Rigidbody>();
-                        if (sirb != null) {
-                            sirb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
-                        }
-                        Explosive storageItemExplosive = storageItem.GetComponent<Explosive>();
-                        if (storageItemExplosive != null) {
-                            storageItemExplosive.Explode();
-                        }
-                    }
-                }
-                Rigidbody cRB = c.gameObject.GetComponent<Rigidbody>();
-                if (cRB != null) {
-                    cRB.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
-                }
-                Explosive colliderExplosive = c.gameObject.GetComponent<Explosive>();
-                if (colliderExplosive != null) {
-                    colliderExplosive.Explode();
-                }
-            }
-            try {
-                GameController.instance.showGameOverUI();
-            }
-            catch (Exception e) {
-                Debug.Log(e);
+            GameObject newExplosion = Instantiate(explosion);
+            Explosion expl = newExplosion.GetComponent<Explosion>();
+            if (expl != null) {
+                expl.setValues(explosionPosition, explosionRadius, explosionForce);
+                expl.Detonate();
             }
         }
     }
