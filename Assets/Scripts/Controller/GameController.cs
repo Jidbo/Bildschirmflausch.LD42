@@ -16,15 +16,13 @@ public class GameController : MonoBehaviour {
     GameObject GameOverUI;
     [SerializeField]
     GameObject player;
-    [SerializeField]
-    public GameObject PowerUpManager;
 
     bool isDisplayed;
     float timeToDisplay;
 
-    int gameScore = 0;
+    float gameScore = 0;
 
-    enum GameState {PAUSED, PLAYING, GAMEOVER, MAINMENU};
+    enum GameState {PAUSED, PLAYING, GAMEOVER};
 
     [SerializeField]
     GameState currentGameState = GameState.PLAYING;
@@ -38,56 +36,52 @@ public class GameController : MonoBehaviour {
     }
 
 	private void Start() {
-        if (currentGameState != GameState.MAINMENU) {
-            ScoreText.GetComponent<Text>().text = "Score: 0";
-            isDisplayed = false;
-            WasteNotification.SetActive(false);
-        }
+        ScoreText.GetComponent<Text>().text = "Score: 0";
+        isDisplayed = false;
+        WasteNotification.SetActive(false);
         Time.timeScale = 1;
         player.GetComponent<PlayerMovement>().ToggleControlledMovement(true);
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (currentGameState != GameState.MAINMENU) {
-            if (Input.GetAxis("Pause") > 0) {
-                if (currentGameState == GameState.PLAYING && !pausedPressed) {
-                    UIController controller = UI.GetComponent<UIController>();
-                    if (controller != null) {
-                        controller.showUI(true);
-                    } else {
-                        Debug.Log("Cant find UI controller");
-                    }
-                } else if (currentGameState == GameState.PAUSED && !pausedPressed) {
-                    UIController controller = UI.GetComponent<UIController>();
-                    if (controller != null) {
-                        controller.showUI(false);
-                    } else {
-                        Debug.Log("Cant find UI controller");
-                    }
+        if (Input.GetAxis("Pause") > 0) {
+            if (currentGameState == GameState.PLAYING && !pausedPressed) {
+                UIController controller = UI.GetComponent<UIController>();
+                if (controller != null) {
+                    controller.showUI(true);
+                } else {
+                    Debug.Log("Cant find UI controller");
                 }
-
-                pausedPressed = true;
-            } else {
-                pausedPressed = false;
-            }
-
-            if (timeToDisplay > 0F) {
-                timeToDisplay -= Time.deltaTime;
-                if (!isDisplayed) {
-                    isDisplayed = true;
-                    WasteNotification.SetActive(true);
-                }
-                WasteNotification.transform.Rotate(0, 10, 0);
-            } else {
-                if (isDisplayed) {
-                    isDisplayed = false;
-                    WasteNotification.SetActive(false);
+            } else if (currentGameState == GameState.PAUSED && !pausedPressed) {
+                UIController controller = UI.GetComponent<UIController>();
+                if (controller != null) {
+                    controller.showUI(false);
+                } else {
+                    Debug.Log("Cant find UI controller");
                 }
             }
 
-            updateScore((int)Time.deltaTime);
+            pausedPressed = true;
+        } else {
+            pausedPressed = false;
         }
+
+        if (timeToDisplay > 0F) {
+            timeToDisplay -= Time.deltaTime;
+            if (!isDisplayed) {
+                isDisplayed = true;
+                WasteNotification.SetActive(true);
+            }
+            WasteNotification.transform.Rotate(0, 10, 0);
+        } else {
+            if (isDisplayed) {
+                isDisplayed = false;
+                WasteNotification.SetActive(false);
+            }
+        }
+
+        updateScore((int)Time.deltaTime);
 	}
 
     public void Pause() {
@@ -100,12 +94,12 @@ public class GameController : MonoBehaviour {
         currentGameState = GameState.PLAYING;
     }
 
-    public void updateScore(int toAdd) {
+    public void updateScore(float toAdd) {
         if (currentGameState != GameState.PLAYING) return;
 
         gameScore += toAdd;
-        int spacePadding = 10 - gameScore.ToString().Length;
-        ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + gameScore.ToString();
+        int spacePadding = 10 - ((int) gameScore).ToString().Length;
+        ScoreText.GetComponent<Text>().text = "Score:" + new string(' ', spacePadding) + ((int) gameScore).ToString();
     }
 
     public float getCurrentScore() {

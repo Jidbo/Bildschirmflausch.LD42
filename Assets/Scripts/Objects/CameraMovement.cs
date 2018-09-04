@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    public GameObject player;
-    public GameObject anchor1;
-    public GameObject anchor2;
-    public float damping = 1.0f;
-    Vector3 offset;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject anchor1;
+    [SerializeField]
+    private GameObject anchor2;
+    [SerializeField]
+    private float damping = 1.0f;
+    [SerializeField]
+    private Vector3 offset;
 
     void Start() {
         offset = player.transform.position - transform.position;

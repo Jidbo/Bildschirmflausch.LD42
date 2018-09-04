@@ -9,52 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1084332700133154}
+  m_RootGameObject: {fileID: 1670580534093436}
   m_IsPrefabAsset: 1
---- !u!1 &1084332700133154
+--- !u!1 &1670580534093436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4285951814413870}
-  - component: {fileID: 114450014620488874}
-  m_Layer: 14
-  m_Name: TMPSpawner
+  - component: {fileID: 4838508510396842}
+  - component: {fileID: 114126523412904164}
+  m_Layer: 0
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4285951814413870
+--- !u!4 &4838508510396842
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084332700133154}
+  m_GameObject: {fileID: 1670580534093436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114450014620488874
+--- !u!114 &114126523412904164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084332700133154}
+  m_GameObject: {fileID: 1670580534093436}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1edb02c92da12411aa95015c73a6ca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
-  timeTillSpawning: 0
-  toSpawn:
-  - {fileID: 1333369061650772, guid: 86ad99cda8d71428b9302141e546e47b, type: 2}
-  - {fileID: 1943071178220950, guid: fcbc7bea590f746ecaf934dda500b984, type: 2}
-  - {fileID: 1988164223302370, guid: 30c5b4c73dbe44230bd33d2771b3e871, type: 2}
-  - {fileID: 1988164223302370, guid: 30c5b4c73dbe44230bd33d2771b3e871, type: 2}
+  cooldown: 2.5
+  cooldownVariation: 0
+  toSpawn: []
+  spawnAmount: 1

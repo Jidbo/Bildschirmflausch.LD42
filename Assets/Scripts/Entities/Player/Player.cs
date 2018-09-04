@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    StorageSystem playerStorage;
+    private StorageSystem playerStorage;
     [SerializeField]
-    GameObject spaceCheck;
+    private GameObject spaceCheck;
     [SerializeField]
-    LayerMask obstacleLayerMask;
+    private LayerMask obstacleLayerMask;
 
     void Start() {
         playerStorage = GetComponent<StorageSystem>();
     }
 
-    private void UseAction() {
+    public void UseAction() {
         //gets all colliders
         Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1.5f, 1.5f, 0.75f), transform.rotation, obstacleLayerMask);
         //checker if there is space in front of the player
@@ -68,12 +68,5 @@ public class Player : MonoBehaviour {
         if (playerItem != null && !isSpaceInFront) {
             playerStorage.Add(playerItem);
         }
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            UseAction();
-        }
-        GetComponent<Animator>().SetBool("isLiftUp", playerStorage.IsFull());
     }
 }
