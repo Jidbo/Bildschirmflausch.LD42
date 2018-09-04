@@ -530,6 +530,7 @@ MonoBehaviour:
   anchor1: {fileID: 1676363125}
   anchor2: {fileID: 1688670204}
   damping: 1
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,6 +1284,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114976888751940006, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: soundeffects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4759925969440598, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1355,6 +1361,11 @@ Prefab:
       propertyPath: PowerUpManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114976888751940006, guid: 8b5b38e88e30d434db8c49d60c9820d1,
+        type: 2}
+      propertyPath: soundeffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 2038543325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5b38e88e30d434db8c49d60c9820d1, type: 2}
   m_IsPrefabAsset: 0

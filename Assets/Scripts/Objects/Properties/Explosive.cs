@@ -19,8 +19,9 @@ public class Explosive : MonoBehaviour {
     [SerializeField]
     private GameObject explosion;
     private Animator animator;
-    private bool poisoned;
 
+    private bool poisoned;
+    public bool shouldExplode = false;
     private bool exploded = false;
 
     private void Start() {
@@ -42,7 +43,7 @@ public class Explosive : MonoBehaviour {
 
     private void FixedUpdate() {
         if (currentHealth <= 0) {
-            Explode();
+            shouldExplode = true;
         }
         if (currentPoisonCoolDown > 0) {
             currentPoisonCoolDown -= Time.deltaTime;
@@ -69,6 +70,10 @@ public class Explosive : MonoBehaviour {
             catch (Exception e) {
                 Debug.Log(e);
             }
+        }
+
+        if (shouldExplode) {
+            Explode();
         }
     }
 

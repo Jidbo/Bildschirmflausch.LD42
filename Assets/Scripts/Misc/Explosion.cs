@@ -23,6 +23,10 @@ public class Explosion : MonoBehaviour {
         foreach (ParticleSystem ps in explosionParticles) {
             ps.Play();
         }
+        AudioControl audioControl = GameController.instance.GetAudio();
+        if(audioControl != null) {
+            audioControl.SfxPlay(2);
+        }
         detonated = true;
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider c in colliders) {
@@ -46,7 +50,7 @@ public class Explosion : MonoBehaviour {
             }
             Explosive colliderExplosive = c.gameObject.GetComponent<Explosive>();
             if (colliderExplosive != null) {
-                colliderExplosive.Explode();
+                colliderExplosive.shouldExplode = true;
             }
         }
         try {
