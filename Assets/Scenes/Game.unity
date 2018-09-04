@@ -1147,7 +1147,7 @@ Prefab:
     - target: {fileID: 114126523412904164, guid: 6db85c013132f674098016cf11cd2b02,
         type: 2}
       propertyPath: toSpawn.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4838508510396842, guid: 6db85c013132f674098016cf11cd2b02, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1200,6 +1200,12 @@ Prefab:
       propertyPath: toSpawn.Array.data[0]
       value: 
       objectReference: {fileID: 1128279503065340, guid: 7046bb970bbcba04ea21da363eaa4719,
+        type: 2}
+    - target: {fileID: 114126523412904164, guid: 6db85c013132f674098016cf11cd2b02,
+        type: 2}
+      propertyPath: toSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 1412272179324070, guid: fe63671b155400d48803a4a17ed89b3e,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6db85c013132f674098016cf11cd2b02, type: 2}
