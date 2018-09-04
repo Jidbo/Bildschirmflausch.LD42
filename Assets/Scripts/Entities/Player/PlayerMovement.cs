@@ -5,26 +5,41 @@ using System;
 
 public class PlayerMovement : MonoBehaviour {
     [SerializeField]
-    float rotationSpeed = 2.3f;
+    private float rotationSpeed = 2.3f;
     [SerializeField]
-    float movementSpeed = 10;
+    private float movementSpeed = 10;
 
-    bool backRotationToggle = true;
+    private bool hasSubmitted = false;
+    private bool controllable = true;
+    private bool backRotationToggle = true;
 
-    float hSpeed;
-    float vSpeed;
+    private float hSpeed;
+    private float vSpeed;
+    Player player;
 
-    bool controllable = true;
+    private void Start() {
+        player = GetComponent<Player>();
+    }
 
     [SerializeField]
-    float rotationAngle = (float) Math.PI * 0.5f;
+    private float rotationAngle = (float) Math.PI * 0.5f;
 
     private void Update() {
         if (controllable) {
+            if (!hasSubmitted && Input.GetAxis("Submit") == 1) {
+                hasSubmitted = true;
+                player.UseAction();
+                GetComponent<Animator>().SetBool("isLiftUp", GetComponent<StorageSystem>().IsFull());
+            } else if (hasSubmitted && Input.GetAxis("Submit") == 0) {
+                hasSubmitted = false;
+            }
+
             if (Input.GetKeyDown(KeyCode.T)) {
                 backRotationToggle = !backRotationToggle;
             }
+
             hSpeed = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
+
             if (Input.GetAxis("Vertical") >= 0) {
                 vSpeed = Input.GetAxis("Vertical") * movementSpeed;
             } else {

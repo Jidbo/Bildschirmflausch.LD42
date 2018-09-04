@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    StorageSystem playerStorage;
+    private StorageSystem playerStorage;
     [SerializeField]
-    GameObject spaceCheck;
+    private GameObject spaceCheck;
     [SerializeField]
-    LayerMask obstacleLayerMask;
-
-    bool hasSubmitted;
+    private LayerMask obstacleLayerMask;
 
     void Start() {
         playerStorage = GetComponent<StorageSystem>();
-        hasSubmitted = false;
     }
 
-    private void UseAction() {
+    public void UseAction() {
         //gets all colliders
         Collider[] colliders = Physics.OverlapBox(spaceCheck.transform.position, new Vector3(1.5f, 1.5f, 0.75f), transform.rotation, obstacleLayerMask);
         //checker if there is space in front of the player
@@ -70,16 +67,6 @@ public class Player : MonoBehaviour {
         //adds the currently held item back to the playerStorage when no space is found
         if (playerItem != null && !isSpaceInFront) {
             playerStorage.Add(playerItem);
-        }
-    }
-
-    private void Update() {
-        if (!hasSubmitted && Input.GetAxis("Submit") == 1) {
-            hasSubmitted = true;
-            UseAction();
-            GetComponent<Animator>().SetBool("isLiftUp", playerStorage.IsFull());
-        } else if(hasSubmitted && Input.GetAxis("Submit") == 0) {
-            hasSubmitted = false;
         }
     }
 }

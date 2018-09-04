@@ -14,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour {
 
     private System.Random rnd;
     [SerializeField]
-    public float timeTillSpawning;
+    private float timeTillSpawning;
 
     void Start() {
         rnd = new System.Random();

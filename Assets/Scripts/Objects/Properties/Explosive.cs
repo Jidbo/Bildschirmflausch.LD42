@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class Explosive : MonoBehaviour {
     [SerializeField]
-    float health = 10;
+    private float health = 10;
     private float currentHealth;
     [SerializeField]
-    float regenerationAmount = 0.01f;
+    private float regenerationAmount = 0.01f;
     [SerializeField]
-    float poisonCoolDown = 0.5f;
-    float currentPoisonCoolDown;
+    private float poisonCoolDown = 0.5f;
+    private float currentPoisonCoolDown;
     [SerializeField]
-    float explosionForce = 100;
+    private float explosionForce = 1000;
     [SerializeField]
-    float explosionRadius = 7;
+    private float explosionRadius = 7;
     [SerializeField]
-    GameObject explosion;
-    Animator animator;
-    bool poisoned;
+    private GameObject explosion;
+    private Animator animator;
+    private bool poisoned;
 
-    bool exploded = false;
+    private bool exploded = false;
 
     private void Start() {
         currentHealth = health;

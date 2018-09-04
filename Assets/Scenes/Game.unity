@@ -2346,12 +2346,12 @@ Prefab:
     - target: {fileID: 114126523412904164, guid: 6db85c013132f674098016cf11cd2b02,
         type: 2}
       propertyPath: cooldown
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114126523412904164, guid: 6db85c013132f674098016cf11cd2b02,
         type: 2}
       propertyPath: cooldownVariation
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1670580534093436, guid: 6db85c013132f674098016cf11cd2b02, type: 2}
       propertyPath: m_IsActive
