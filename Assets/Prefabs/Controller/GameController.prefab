@@ -57,7 +57,6 @@ MonoBehaviour:
   WasteNotification: {fileID: 0}
   GameOverUI: {fileID: 0}
   player: {fileID: 0}
-  PowerUpManager: {fileID: 0}
   currentGameState: 1
 --- !u!114 &114976888751940006
 MonoBehaviour:

@@ -27,6 +27,11 @@ public class Explosive : MonoBehaviour {
         currentHealth = health;
         currentPoisonCoolDown = poisonCoolDown;
         animator = GetComponent<Animator>();
+        try {
+            GameController.instance.updateScore(10);
+        } catch(Exception e) {
+            Debug.Log(e);
+        }
     }
 
     public void AddPoisoning(float amount) {
@@ -55,7 +60,6 @@ public class Explosive : MonoBehaviour {
             }
         }
         else if (poisoned) {
-            
             if (animator != null) {
                 animator.SetBool("exploding", true);
             }

@@ -9,8 +9,11 @@ public class Player : MonoBehaviour {
     [SerializeField]
     LayerMask obstacleLayerMask;
 
+    bool hasSubmitted;
+
     void Start() {
         playerStorage = GetComponent<StorageSystem>();
+        hasSubmitted = false;
     }
 
     private void UseAction() {
@@ -71,9 +74,12 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (!hasSubmitted && Input.GetAxis("Submit") == 1) {
+            hasSubmitted = true;
             UseAction();
+            GetComponent<Animator>().SetBool("isLiftUp", playerStorage.IsFull());
+        } else if(hasSubmitted && Input.GetAxis("Submit") == 0) {
+            hasSubmitted = false;
         }
-        GetComponent<Animator>().SetBool("isLiftUp", playerStorage.IsFull());
     }
 }

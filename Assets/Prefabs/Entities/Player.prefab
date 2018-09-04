@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ce1f570337b4f4eaa8c5d259b451f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipes: []
   storages:
   - {fileID: 114663800128675144}
   type: 0
@@ -690,6 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4944b64771144a0943ca26f48ffd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreForFilling: 0
   minSize: {x: 0, y: 0, z: 0}
   maxSize: {x: 2, y: 1, z: 1}
   positions:
